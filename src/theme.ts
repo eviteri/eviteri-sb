@@ -12,15 +12,15 @@ export const colors = {
 
 const theme = {
   button: {
-    padding: '15px 24px 14px',
-    borderRadius: '10px',
     primary: {
       text: colors.midNight,
-      background: colors.mint
+      background: colors.mint,
+      hover: 'rgba(169,255,186, 0.4)'
     },
     secondary: {
       text: colors.snow,
-      background: colors.midNight
+      background: colors.midNight,
+      hover: 'rgba(44,55,71, 0.8)'
     }
   }
 }

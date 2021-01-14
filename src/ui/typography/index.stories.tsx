@@ -8,7 +8,7 @@ export const AllElements = () => {
       <H1>H1 Element</H1>
       <H2>H2 Element</H2>
       <H3>H3 Element</H3>
-      <P>Paragraph Element</P>
+      <P>Body Element</P>
     </>
   )
 }
