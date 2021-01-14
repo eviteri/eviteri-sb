@@ -26,6 +26,18 @@ export const SecondaryButton = () => {
   )
 }
 
+export const Hamburger = () => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+
+  return (
+    <Button
+      buttonType="hamburger"
+      isMenuOpen={isMenuOpen}
+      onClick={() => setIsMenuOpen((prevState) => !prevState)}
+    />
+  )
+}
+
 export default {
   title: 'Atoms/Buttons',
   component: Button,

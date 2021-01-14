@@ -1,24 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ThemeProvider } from 'styled-components/macro' // import micro for automatic debugging and optimization features
 import theme from './theme'
 import GlobalStyle from './globalStyles'
-import Button from './ui/Attoms/Button'
+import Home from './pages/Home'
 
 function App() {
-  const onClick = () => {
-    console.log('I am here')
+  const showPage = () => {
+    document.body.className = document.body.className.replace('js-loading', '')
   }
+
+  useEffect(() => {
+    window.addEventListener('load', showPage, false)
+    return () => window.removeEventListener('resize', showPage)
+  })
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <>
-        <div>Test</div>
-        <h1>Midnight/Display Right</h1>
-        <Button buttonType="primary" onClick={onClick}>
-          Primary
-        </Button>
-        <Button buttonType="secondary">Primary</Button>
-      </>
+      <Home />
     </ThemeProvider>
   )
 }

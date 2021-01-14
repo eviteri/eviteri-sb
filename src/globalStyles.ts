@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import theme, { colors } from './theme'
 
 /*
     createGlobalStyle replaces index.css.
@@ -50,7 +49,16 @@ font-style: normal;
 */
 
 const GlobalStyle = createGlobalStyle`
+    .js-loading *,
+    .js-loading *:before,
+    .js-loading *:after{
+        display: none;
+        animation-play-state: paused !important; 
+    }
+
     body{
+        padding: 0;
+        margin: 0;
         font-family: niveau-grotesk, sans-serif;
         font-size: 16px;
         font-weight: normal;
@@ -59,6 +67,9 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1.5;
         letter-spacing: normal;
         font-display: fallback; /* <- this can be added to each @font-face definition */
+    }
+    .sb-show-main.sb-main-padded {
+        padding: 0 !important;
     }
 `
 
