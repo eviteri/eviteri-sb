@@ -11,7 +11,7 @@ const less: Record<string, string> = {
   lessThanRegular: `(max-width: ${breaks.regular})`,
   lessThanLarge: `(max-width: ${breaks.large})`,
   lessThanMedium: `(max-width: ${breaks.medium})`,
-  lessThanSamll: `(max-width: ${breaks.small})`
+  lessThanSmall: `(max-width: ${breaks.small})`
 }
 
 const great: Record<string, string> = {
@@ -19,7 +19,7 @@ const great: Record<string, string> = {
   greaterThanRegular: `(min-width: ${breaks.regular})`,
   greaterThanLarge: `(min-width: ${breaks.large})`,
   greaterThanMedium: `(min-width: ${breaks.medium})`,
-  greaterThanSamll: `(min-width: ${breaks.small})`
+  greaterThanSmall: `(min-width: ${breaks.small})`
 }
 
 const createBetween = (start: string, stop: string): string =>

@@ -2,21 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import mockNavigationLInks from '../../const/mockData/navigationLinks.json'
 import mockSocialMediaLinks from '../../const/mockData/mockSocialMediaLinks'
-import greenBackground from '../../assets/backgrounds/greenBackground.png'
-import homeHeroImage from '../../assets/backgrounds/HomeHeroImage.png'
 
 import Header from '../../ui/Organisms/Header'
 import Hero from '../../ui/Organisms/Hero'
 import query from '../../const/mediaQueries'
 
 export const PageWrapper = styled.div`
-  background-image: url(${greenBackground});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: ${({ theme }) => theme.body.backgroundSolid};
 `
 
-export const HeroConatiner = styled.div`
+export const HeroConatiner = styled.section`
   margin-top: 111px;
 
   @media ${query.lessThanLarge} {
@@ -43,7 +38,7 @@ const Home = () => {
           description="Why not take care of it? After all, an underperforming website can leave your company in the dust. We partner with brands like yours to build, optimize, and grow sites and applications into memorable experiences that inform, inspire, and empower your customers. You're proud of the brand you've built, now you'll be proud of your website, too."
           linkLabel="View our work"
           linkUrl="#viewourwork"
-          imageUrl={homeHeroImage}
+          videoUrl="https://www.youtube.com/watch?v=ysz5S6PUM-U"
         />
       </HeroConatiner>
 

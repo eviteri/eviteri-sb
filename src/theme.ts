@@ -1,7 +1,5 @@
 import siteLogo from './assets/logos/eviteri-reverse.png'
 import siteLogoAlt from './assets/logos/eviteri-register.png'
-import darkHeroBackground from './assets/backgrounds/HeroShape.png'
-import lightHeroBackground from './assets/backgrounds/HeroShapeAlt.png'
 
 export const colors = {
   snow: '#ffffff',
@@ -12,7 +10,8 @@ export const colors = {
   emerald: '#2a5d6b',
   fog: '#f0f5f8',
   lightBlueGrey: '#d4d6d9',
-  mint: '#a9e1ba'
+  mint: '#a9e1ba',
+  lightGreen: '#bce9c8'
 }
 
 const theme = {
@@ -31,8 +30,6 @@ const theme = {
   hero: {
     background: colors.midNight,
     backgroundAlt: colors.fog,
-    backgroundImg: darkHeroBackground,
-    backgroundImgAlt: lightHeroBackground,
     color: colors.snow,
     colorAlt: colors.midNight
   },
@@ -53,8 +50,8 @@ const theme = {
     }
   },
   body: {
-    backgroundImage:
-      'linear-gradient(to bottom, var(--colors-fills-snow) 100%, var(--colors-fills-mint) 59%, var(--colors-fills-snow) 19%);'
+    backgroundSolid: colors.lightGreen,
+    backgroundLinear: `linear-gradient(to bottom, ${colors.snow}, ${colors.mint}, ${colors.snow});`
   }
 }
 

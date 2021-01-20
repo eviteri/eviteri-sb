@@ -7,7 +7,7 @@ interface StyledProps {
   themeMode?: 'dark' | 'light'
 }
 
-export const HeaderWrapper = styled.div<StyledProps>`
+export const HeaderWrapper = styled.header<StyledProps>`
   z-index: 10;
   position: fixed;
   width: 100%;

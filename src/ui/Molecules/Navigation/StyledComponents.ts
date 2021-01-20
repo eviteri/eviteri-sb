@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import query from '../../../const/mediaQueries'
-import darkBackground from '../../../assets/backgrounds/background.png'
 
 export interface NavigationLinksListProps {
   themeMode: 'dark' | 'light'
@@ -43,9 +42,7 @@ export const NavigationLinksList = styled.ul<NavigationLinksListProps>`
     }
   }
   @media ${query.lessThanLarge} {
-    background-image: url(${darkBackground});
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: ${({ theme }) => theme.navigation.background};
     padding-top: 45px;
     flex: 1;
     flex-direction: column;

@@ -1,12 +1,17 @@
 import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
+import { boolean, withKnobs } from '@storybook/addon-knobs'
 import Hero from './Hero'
 import homeHeroImage from '../../../assets/backgrounds/HomeHeroImage.png'
+
+const label = 'Should Animate?'
+const defaultValue = false
+const groupId = 'GROUP-HERO'
 
 export const DarkSimple = () => {
   return (
     <Hero
-      shouldAnimate={true}
+      shouldAnimate={boolean(label, defaultValue, groupId)}
       themeMode="dark"
       tagLine="web development services"
       title="Your website does a lot for your business."
@@ -20,7 +25,7 @@ export const DarkSimple = () => {
 export const DarkWithImage = () => {
   return (
     <Hero
-      shouldAnimate={true}
+      shouldAnimate={boolean(label, defaultValue, groupId)}
       themeMode="dark"
       tagLine="web development services"
       title="Your website does a lot for your business."
@@ -35,7 +40,7 @@ export const DarkWithImage = () => {
 export const DarkWithVideo = () => {
   return (
     <Hero
-      shouldAnimate={true}
+      shouldAnimate={boolean(label, defaultValue, groupId)}
       themeMode="dark"
       title="Our Story"
       description="A little blurb about who you are, why you got started, and how you work. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
@@ -47,7 +52,7 @@ export const DarkWithVideo = () => {
 export const LigthSimple = () => {
   return (
     <Hero
-      shouldAnimate={true}
+      shouldAnimate={boolean(label, defaultValue, groupId)}
       themeMode="light"
       tagLine="web development services"
       title="Your website does a lot for your business."
@@ -61,7 +66,7 @@ export const LigthSimple = () => {
 export const LightWithImage = () => {
   return (
     <Hero
-      shouldAnimate={true}
+      shouldAnimate={boolean(label, defaultValue, groupId)}
       themeMode="light"
       tagLine="web development services"
       title="Your website does a lot for your business."
@@ -76,7 +81,7 @@ export const LightWithImage = () => {
 export const LightWithVideo = () => {
   return (
     <Hero
-      shouldAnimate={true}
+      shouldAnimate={boolean(label, defaultValue, groupId)}
       themeMode="light"
       title="Our Story"
       description="A little blurb about who you are, why you got started, and how you work. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
@@ -88,5 +93,6 @@ export const LightWithVideo = () => {
 export default {
   title: 'Organisms/Hero',
   component: Hero,
-  name: 'Hero'
+  name: 'Hero',
+  decorators: [withKnobs]
 } as Meta
