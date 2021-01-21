@@ -1,8 +1,10 @@
 import siteLogo from './assets/logos/eviteri-reverse.png'
 import siteLogoAlt from './assets/logos/eviteri-register.png'
+import ThemeProps from './typings/themeProps'
 
 export const colors = {
   snow: '#ffffff',
+  error: 'red',
   glacier: '#669db2',
   seaIce: '#e9f5fc',
   navy: '#16436a',
@@ -14,7 +16,14 @@ export const colors = {
   lightGreen: '#bce9c8'
 }
 
-const theme = {
+const theme: ThemeProps = {
+  form: {
+    background: colors.snow,
+    inputBackground: colors.fog,
+    inputColor: colors.midNight,
+    errorColor: colors.error,
+    labelColor: colors.navy
+  },
   logo: {
     image: siteLogo,
     imageAlt: siteLogoAlt,

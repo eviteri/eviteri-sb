@@ -1,0 +1,51 @@
+export type ThemeModeType = 'dark' | 'light'
+
+export interface ThemeProps {
+  form: {
+    background: string
+    inputBackground: string
+    inputColor: string
+    errorColor: string
+    labelColor: string
+  }
+  logo: {
+    image: string
+    imageAlt: string
+    width: string
+    height: string
+  }
+  navigation: {
+    background: string
+    backgroundAlt: string
+    color: string
+    colorAlt: string
+  }
+  hero: {
+    background: string
+    backgroundAlt: string
+    color: string
+    colorAlt: string
+  }
+  hamburger: {
+    background: string
+    backgroundAlt: string
+  }
+  button: {
+    primary: {
+      text: string
+      background: string
+      hover: string
+    }
+    secondary: {
+      text: string
+      background: string
+      hover: string
+    }
+  }
+  body: {
+    backgroundSolid: string
+    backgroundLinear: string
+  }
+}
+
+export default ThemeProps

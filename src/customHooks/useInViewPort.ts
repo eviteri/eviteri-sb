@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 interface Entry {
   intersectionRatio: number
@@ -11,23 +11,26 @@ export default function useInViewPort(
 ) {
   const [isInViewPort, setIsInViewPort] = useState(false)
 
-  const observerCallBack = (entries: Entry[], observer: any) => {
-    let intersectionCounter = 0
-    entries.forEach((entry: Entry) => {
-      if (
-        entry.isIntersecting &&
-        entry.intersectionRatio >= intersectionRation
-      ) {
-        intersectionCounter++
+  const observerCallBack = useCallback(
+    (entries: Entry[], observer: any) => {
+      let intersectionCounter = 0
+      entries.forEach((entry: Entry) => {
+        if (
+          entry.isIntersecting &&
+          entry.intersectionRatio >= intersectionRation
+        ) {
+          intersectionCounter++
+        }
+      })
+
+      if (intersectionCounter > 0) {
+        setIsInViewPort(true)
       }
-    })
+    },
+    [intersectionRation]
+  )
 
-    if (intersectionCounter > 0) {
-      setIsInViewPort(true)
-    }
-  }
-
-  const createObserver = () => {
+  const createObserver = useCallback(() => {
     const options = {
       root: null,
       rootMargin: '0px',
@@ -40,7 +43,7 @@ export default function useInViewPort(
     if (target) {
       observer.observe(target)
     }
-  }
+  }, [intersectionRation, observerCallBack, wrapperRef])
 
   useEffect(() => {
     createObserver()

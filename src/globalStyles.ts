@@ -49,13 +49,6 @@ font-style: normal;
 */
 
 const GlobalStyle = createGlobalStyle`
-    .js-loading *,
-    .js-loading *:before,
-    .js-loading *:after{
-        display: none;
-        animation-play-state: paused !important; 
-    }
-
     body{
         padding: 0;
         margin: 0;

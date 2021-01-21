@@ -1,6 +1,7 @@
-import styled, { css, Keyframes, keyframes } from 'styled-components'
+import styled, { css, Keyframes } from 'styled-components'
 import { H1, P } from '../../../ui/typography'
 import query from '../../../const/mediaQueries'
+import { popIn, fadeInRight } from '../../../helpers/animations'
 
 interface StyledProps {
   themeMode?: string
@@ -8,31 +9,6 @@ interface StyledProps {
   hasRightSection?: boolean
   shouldTriggerAnimation?: boolean
 }
-
-export const popIn = keyframes`
-    0% {
-        opacity: 0;
-        transform: translateY(-4rem) scale(.8);
-    }
-    100% {
-        opacity: 1;
-        transform: none;
-    }
-`
-
-export const fadeInRight = keyframes`
-  0% {
-      opacity: 0;
-      -webkit-transform: translate3d(100%,0,0);
-      transform: translate3d(100%,0,0)
-  }
-
-  to {
-      opacity: 1;
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0)
-  }
-`
 
 const handleShouldAnimate = (
   shouldAnimate: boolean = false,
