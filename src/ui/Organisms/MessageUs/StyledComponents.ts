@@ -24,7 +24,6 @@ export const MessageUsWrapper = styled.div<StyledProps>`
     flex-direction: column;
     align-items: center;
     width: 90%;
-    margin-bottom: 148px;
   }
 `
 

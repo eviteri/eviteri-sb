@@ -1,9 +1,9 @@
 import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
-import Form from './Form'
+import Form, { FormProps } from './Form'
 import contactFormFields from '../../../const/mockData/contactFormFields'
 
-export const ContactForm = (args) => {
+export const ContactForm = (args: FormProps) => {
   return <Form {...args} />
 }
 ContactForm.args = {

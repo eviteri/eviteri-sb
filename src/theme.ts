@@ -1,5 +1,7 @@
 import siteLogo from './assets/logos/eviteri-reverse.png'
 import siteLogoAlt from './assets/logos/eviteri-register.png'
+import terrazzoBackground from './assets/backgrounds/terrazzo.png'
+import organicShape from './assets/backgrounds/organic-shapes.png'
 import ThemeProps from './typings/themeProps'
 
 export const colors = {
@@ -17,6 +19,10 @@ export const colors = {
 }
 
 const theme: ThemeProps = {
+  ourServices: {
+    backgroundImage: terrazzoBackground,
+    backgroundOverlay: organicShape
+  },
   form: {
     background: colors.snow,
     inputBackground: colors.fog,

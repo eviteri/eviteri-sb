@@ -15,7 +15,7 @@ import {
   resetAllFields
 } from './helper'
 
-interface FormProps {
+export interface FormProps {
   title: string
   contactFormFields: FormElements
   submitLabel: string

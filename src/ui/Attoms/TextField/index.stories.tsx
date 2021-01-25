@@ -1,13 +1,13 @@
 import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
-import TextField from './TextField'
+import TextField, { InputProps } from './TextField'
 import {
   NAME_PATTERN,
   EMAIL_PATTERN,
   PHONE_PATTERN
 } from '../../../const/mockData/contactFormFields'
 
-export const Name = (args) => {
+export const Name = (args: InputProps) => {
   return (
     <TextField
       {...args}
@@ -28,7 +28,7 @@ Name.args = {
   placeholder: 'John Smith'
 }
 
-export const Email = (args) => {
+export const Email = (args: InputProps) => {
   return (
     <TextField
       {...args}
@@ -48,7 +48,7 @@ Email.args = {
   placeholder: 'john.smith@company.com'
 }
 
-export const Phone = (args) => {
+export const Phone = (args: InputProps) => {
   return (
     <TextField
       {...args}
@@ -68,7 +68,7 @@ Phone.args = {
   placeholder: 'john.smith@company.com'
 }
 
-export const Error = (args) => {
+export const Error = (args: InputProps) => {
   return (
     <TextField
       {...args}

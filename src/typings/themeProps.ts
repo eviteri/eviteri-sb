@@ -1,6 +1,10 @@
 export type ThemeModeType = 'dark' | 'light'
 
 export interface ThemeProps {
+  ourServices: {
+    backgroundImage: string
+    backgroundOverlay: string
+  }
   form: {
     background: string
     inputBackground: string

@@ -2,6 +2,8 @@ import React, { useCallback } from 'react'
 import mockNavigationLInks from '../../const/mockData/navigationLinks.json'
 import mockSocialMediaLinks from '../../const/mockData/mockSocialMediaLinks'
 import mockClientLogos from '../../const/mockData/clientLogos'
+import mockCardIcons from '../../const/mockData/cardIcons'
+import mockOurWorkGallery from '../../const/mockData/ourWorkGallery'
 import contactFormFields from '../../const/mockData/contactFormFields'
 import homeHeroImage from '../../assets/backgrounds/HomeHeroImage.png'
 import { FormElements } from '../../typings/contactForm'
@@ -9,6 +11,8 @@ import { FormElements } from '../../typings/contactForm'
 import Header from '../../ui/Organisms/Header'
 import Hero from '../../ui/Organisms/Hero'
 import MessageUs from '../../ui/Organisms/MessageUs'
+import OurServices from '../../ui/Organisms/OurServices'
+import OurWork from '../../ui/Organisms/OurWork'
 import { PageWrapper, HeroSection } from './StyledComponents'
 
 const Home = () => {
@@ -40,12 +44,22 @@ const Home = () => {
 
       <main>
         <MessageUs
-          shouldAnimate={true}
+          shouldAnimate={false}
           clientLogos={mockClientLogos}
           formTitle="Work with us."
           contactFormFields={contactFormFields}
           submitButtonLabel="SUBMIT"
           onSubmitFormHandler={onSubmitFormHandler}
+        />
+        <OurServices
+          title="Our Services"
+          description="You deserve better than a one-size-fits-all option. We focus on one thing — building dyanmic content-driven technology that gives strength to your brand's mission and helps you deliver on your goals. "
+          cardIcons={mockCardIcons}
+        />
+        <OurWork
+          title="Our Work"
+          description="A collection of our most recent and most favorite projects that have brought maximal value and impact to our clients."
+          ourWorkGallery={mockOurWorkGallery}
         />
         <div>
           START Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
