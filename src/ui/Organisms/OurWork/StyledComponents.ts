@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import query from '../../../const/mediaQueries'
 
 export const OurWorkWrapper = styled.div`
@@ -17,10 +17,30 @@ export const OurWorkHeaderWrapper = styled.div`
   }
 `
 
-export const OurWorkFooterWrapper = styled.div``
+export const OurWorkFooterWrapper = styled.div`
+  margin-top: 152px;
+  @media ${query.lessThanMedium} {
+    margin-top: 64px;
+  }
+`
 
-export const SlideWrapper = styled.div``
+export const SlideWrapper = styled.div`
+  height: 592px;
+  .card {
+    max-height: 560px;
+    min-height: 560px;
+    overflow-y: hidden;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 18px 0 rgba(0, 0, 0, 0.08),
+      0 6px 10px 0 rgba(0, 0, 0, 0.04);
+  }
+  @media ${query.lessThanRegular} {
+    .card {
+      box-shadow: none;
+      max-width: 311px;
+    }
+  }
+`
 
 export const CardInnerContent = styled.div`
-  text-align: center;
+  text-align: left;
 `

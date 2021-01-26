@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import {
   CardWrapper,
   CardHeader,
+  CardThumbnailWrapper,
   CardIconWrapper,
   CardFooter
 } from './StyledComponents'
@@ -16,7 +17,10 @@ const Card = ({ thumbnailIamge, iconImage, children }: CardProps) => {
   return (
     <CardWrapper className="card">
       <CardHeader>
-        {iconImage && (
+        {thumbnailIamge && !iconImage && (
+          <CardThumbnailWrapper backgroundImage={thumbnailIamge} />
+        )}
+        {iconImage && !thumbnailIamge && (
           <CardIconWrapper>
             <img src={iconImage} alt="icon" height="24px" />
           </CardIconWrapper>

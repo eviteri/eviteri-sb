@@ -30,7 +30,7 @@ const ourWorkGallery: OurWorkGallery = [
     id: 2,
     title: 'Lorem ipsum dolor sit amet, consectetur.',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.',
     small: nascarThumbnail,
     large: nascar,
     medium: nascarMobile

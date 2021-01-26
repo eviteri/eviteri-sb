@@ -39,8 +39,8 @@ const settings = {
     {
       breakpoint: 767,
       settings: {
-        centerMode: true,
-        centerPadding: '10px',
+        centerMode: false,
+        // centerPadding: '10px',
         infinite: true,
         slidesToShow: 1,
         dots: true,

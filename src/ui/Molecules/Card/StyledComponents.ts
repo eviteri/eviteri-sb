@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import query from '../../../const/mediaQueries'
 
-interface StyledProps {}
+interface StyledProps {
+  backgroundImage?: string
+}
 
 export const CardWrapper = styled.div<StyledProps>`
   box-sizing: border-box;
@@ -10,6 +12,7 @@ export const CardWrapper = styled.div<StyledProps>`
   padding: 60px 40px;
   margin: 0 auto;
   border-radius: 10px;
+  overflow: hidden;
   @media ${query.lessThanMedium} {
     padding: 60px 37px;
   }
@@ -17,6 +20,15 @@ export const CardWrapper = styled.div<StyledProps>`
 
 export const CardHeader = styled.div`
   position: relative;
+`
+
+export const CardThumbnailWrapper = styled.div<StyledProps>`
+  height: 356px;
+  background-image: url(${({ backgroundImage }) => backgroundImage});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: -60px -40px 0px -40px;
 `
 
 export const CardIconWrapper = styled.div`

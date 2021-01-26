@@ -50,8 +50,6 @@ export const OurServicesFooterWrapper = styled.div`
 `
 
 export const SlideWrapper = styled.div`
-  display: block !important;
-  border-radius: 10px;
   .card {
     max-height: 350px;
     min-height: 350px;
@@ -65,7 +63,9 @@ export const SlideWrapper = styled.div`
     }
   }
   @media ${query.lessThanMedium} {
-    width: 285px !important;
+    .card {
+      width: 285px !important;
+    }
   }
 `
 
