@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback, useRef } from 'react'
+import { useInViewPort } from '../../../customHooks'
+import { useLockScreen } from '../../../customHooks'
 import { H2, H3, P } from '../../typography'
 import {
   OurWorkWrapper,
@@ -48,23 +50,36 @@ const settings = {
 }
 
 export interface OurWorkProps {
+  shouldAnimate?: boolean
   title: string
   description: string
   ourWorkGallery: OurWorkGallery
 }
 
-const OurWork = ({ title, description, ourWorkGallery }: OurWorkProps) => {
+const OurWork = ({
+  shouldAnimate = false,
+  title,
+  description,
+  ourWorkGallery
+}: OurWorkProps) => {
+  const intersectionRation = 0.2
+  const ourWorkSectionRef = useRef(null)
+  const isInViewPort = useInViewPort(intersectionRation, ourWorkSectionRef)
+  const shouldTriggerAnimation = isInViewPort && shouldAnimate
+
   const [showModal, setShowModal] = useState(false)
   const [currentImageIndex, setCurrentImageId] = useState(-1)
 
-  const openModalHandler = (index: number) => {
+  const openModalHandler = useCallback((index: number) => {
     setCurrentImageId(index)
     setShowModal(true)
-  }
+  }, [])
 
-  const closeModalHandler = () => {
+  const closeModalHandler = useCallback(() => {
     setShowModal(false)
-  }
+  }, [])
+
+  useLockScreen(showModal)
 
   return (
     <>
@@ -76,7 +91,11 @@ const OurWork = ({ title, description, ourWorkGallery }: OurWorkProps) => {
           closeModalHandler={closeModalHandler}
         />
       )}
-      <OurWorkWrapper>
+      <OurWorkWrapper
+        ref={ourWorkSectionRef}
+        shouldAnimate={shouldAnimate}
+        shouldTriggerAnimation={shouldTriggerAnimation}
+      >
         <OurWorkHeaderWrapper>
           <H2>{title}</H2>
           <P>{description}</P>

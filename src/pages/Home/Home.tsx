@@ -44,7 +44,7 @@ const Home = () => {
 
       <main>
         <MessageUs
-          shouldAnimate={false}
+          shouldAnimate={true}
           clientLogos={mockClientLogos}
           formTitle="Work with us."
           contactFormFields={contactFormFields}
@@ -52,11 +52,13 @@ const Home = () => {
           onSubmitFormHandler={onSubmitFormHandler}
         />
         <OurServices
+          shouldAnimate={true}
           title="Our Services"
           description="You deserve better than a one-size-fits-all option. We focus on one thing — building dyanmic content-driven technology that gives strength to your brand's mission and helps you deliver on your goals. "
           cardIcons={mockCardIcons}
         />
         <OurWork
+          shouldAnimate={true}
           title="Our Work"
           description="A collection of our most recent and most favorite projects that have brought maximal value and impact to our clients."
           ourWorkGallery={mockOurWorkGallery}

@@ -1,43 +1,29 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faArrowLeft,
+  faArrowRight,
+  faTimes
+} from '@fortawesome/free-solid-svg-icons'
 import Slider from 'react-slick'
 import {
   OurWorkGallery,
   OurWorkGalleryDetail
 } from '../../../typings/ourWorkGallery'
-import { H2 } from '../../typography'
 import {
   ModalWrapper,
   ModalContentWrapper,
   ModalHeaderWrapper,
+  ModalTitle,
   ModalCloseButton,
   ModalBoddyWrapper,
   SlideWrapper,
   Slide,
   ModalFooterWrapper,
+  ModalCounter,
   ModalNavigationWrapper,
   ModalArrowButton
 } from './StyledComponents'
-
-const sliderSettings = {
-  className: 'gallery-slider',
-  centerMode: true,
-  infinite: true,
-  arrows: false,
-  centerPadding: '100px',
-  slidesToShow: 1,
-  speed: 500,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        arrows: false,
-        centerMode: false,
-        infinite: true,
-        slidesToShow: 1
-      }
-    }
-  ]
-}
 
 export interface ModalProps {
   title: string
@@ -75,6 +61,44 @@ const Modal = ({
     }
   }
 
+  const sliderSettings = {
+    className: 'gallery-slider',
+    centerMode: true,
+    infinite: true,
+    arrows: false,
+    centerPadding: '100px',
+    slidesToShow: 1,
+    speed: 500,
+    onSwipe: (swipeDirection: string) => {
+      if (swipeDirection === 'left') {
+        onNextButtonHandler()
+      } else {
+        onBackButtonHandler()
+      }
+    },
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: false,
+          infinite: true,
+          slidesToShow: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: false,
+          infinite: true,
+          slidesToShow: 1,
+          dots: true
+        }
+      }
+    ]
+  }
+
   useEffect(() => {
     if (currentImageIndex > 0 && sliderRef.current) {
       sliderRef.current.slickGoTo(currentImageIndex)
@@ -85,29 +109,36 @@ const Modal = ({
     <ModalWrapper>
       <ModalContentWrapper>
         <ModalHeaderWrapper>
-          <H2>{title}</H2>
-          <ModalCloseButton onClick={closeModalHandler}>x</ModalCloseButton>
+          <ModalTitle>{title}</ModalTitle>
+          <ModalCloseButton onClick={closeModalHandler}>
+            <FontAwesomeIcon icon={faTimes} />
+          </ModalCloseButton>
         </ModalHeaderWrapper>
         <ModalBoddyWrapper>
           <Slider {...sliderSettings} ref={sliderRef}>
             {gallery.map((cardIcon: OurWorkGalleryDetail) => {
-              const { large, id } = cardIcon
+              const { large, small, id } = cardIcon
               return (
                 <SlideWrapper key={id} className="SlideWrapper">
-                  <Slide backgroundImage={large} />
+                  <Slide
+                    backgroundImage={large}
+                    mobileBackgroundImage={small}
+                  />
                 </SlideWrapper>
               )
             })}
           </Slider>
         </ModalBoddyWrapper>
         <ModalFooterWrapper>
-          <div>{`${currentIndex + 1} / ${gallery.length}`}</div>
+          <ModalCounter>{`${currentIndex + 1} / ${
+            gallery.length
+          }`}</ModalCounter>
           <ModalNavigationWrapper>
-            <ModalArrowButton onClick={onNextButtonHandler}>
-              Next
-            </ModalArrowButton>
             <ModalArrowButton onClick={onBackButtonHandler}>
-              Back
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </ModalArrowButton>
+            <ModalArrowButton onClick={onNextButtonHandler}>
+              <FontAwesomeIcon icon={faArrowRight} />
             </ModalArrowButton>
           </ModalNavigationWrapper>
         </ModalFooterWrapper>

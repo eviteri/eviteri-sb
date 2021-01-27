@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import query from '../../../const/mediaQueries'
-import { fadeInUp } from '../../../helpers/animations'
+import { fadeInLeft } from '../../../helpers/animations'
 
 interface StyledProps {
   shouldAnimate: boolean
@@ -15,11 +15,10 @@ export const MessageUsWrapper = styled.div<StyledProps>`
   justify-content: space-between;
   opacity: ${({ shouldAnimate }) => (shouldAnimate ? 0 : 1)};
   ${({ shouldTriggerAnimation }) =>
-    shouldTriggerAnimation
-      ? css`
-          animation: ${fadeInUp} 0.6s ease-in forwards;
-        `
-      : ''}
+    shouldTriggerAnimation &&
+    css`
+      animation: ${fadeInLeft} 0.6s ease-in forwards;
+    `}
   @media ${query.lessThanRegular} {
     flex-direction: column;
     align-items: center;

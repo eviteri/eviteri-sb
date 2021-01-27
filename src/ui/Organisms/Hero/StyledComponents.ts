@@ -144,8 +144,7 @@ export const HeroVideoWrapper = styled.div<StyledProps>`
   z-index: 1;
   opacity: ${({ shouldAnimate }) => (shouldAnimate ? 0 : 1)};
   div {
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 18px 0 rgba(0, 0, 0, 0.08),
-      0 6px 10px 0 rgba(0, 0, 0, 0.04);
+    box-shadow: ${({ theme }) => theme.boxShadow};
   }
 
   @media ${query.greaterThanMedium} {

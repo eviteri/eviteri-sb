@@ -1,18 +1,24 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import query from '../../../const/mediaQueries'
 
 interface StyledProps {
   backgroundImage?: string
+  withBoxShadow?: boolean
 }
 
 export const CardWrapper = styled.div<StyledProps>`
   box-sizing: border-box;
-  background-color: white;
+  background-color: ${({ theme }) => theme.card.background};
   max-width: 334px;
   padding: 60px 40px;
   margin: 0 auto;
   border-radius: 10px;
   overflow: hidden;
+  ${({ withBoxShadow, theme }) =>
+    withBoxShadow &&
+    css`
+      box-shadow: ${theme.boxShadow};
+    `}
   @media ${query.lessThanMedium} {
     padding: 60px 37px;
   }

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { useInViewPort } from '../../../customHooks'
 import { H2, H3, P } from '../../typography'
 import {
   OurServicesOutterWrapper,
@@ -13,6 +14,7 @@ import Slider from 'react-slick'
 import { CardIcons, CardIcon } from '../../../typings/cardIcons'
 
 export interface OurServicesProps {
+  shouldAnimate?: boolean
   title: string
   description: string
   cardIcons: CardIcons
@@ -40,7 +42,6 @@ const settings = {
       breakpoint: 767,
       settings: {
         centerMode: false,
-        // centerPadding: '10px',
         infinite: true,
         slidesToShow: 1,
         dots: true,
@@ -50,9 +51,25 @@ const settings = {
   ]
 }
 
-const OurServices = ({ title, description, cardIcons }: OurServicesProps) => {
+const OurServices = ({
+  shouldAnimate = false,
+  title,
+  description,
+  cardIcons
+}: OurServicesProps) => {
+  const intersectionRation = 0.5
+  const ourServicesSectionRef = useRef(null)
+
+  const isInViewPort = useInViewPort(intersectionRation, ourServicesSectionRef)
+
+  const shouldTriggerAnimation = isInViewPort && shouldAnimate
+
   return (
-    <OurServicesOutterWrapper>
+    <OurServicesOutterWrapper
+      ref={ourServicesSectionRef}
+      shouldAnimate={shouldAnimate}
+      shouldTriggerAnimation={shouldTriggerAnimation}
+    >
       <OurServicesWrapper>
         <OurServicesHeaderWrapper>
           <H2>{title}</H2>

@@ -1,10 +1,22 @@
 import styled, { css } from 'styled-components'
 import query from '../../../const/mediaQueries'
+import { fadeInRight } from '../../../helpers/animations'
 
-export const OurServicesOutterWrapper = styled.div`
+interface StyledProps {
+  shouldAnimate: boolean
+  shouldTriggerAnimation: boolean
+}
+
+export const OurServicesOutterWrapper = styled.div<StyledProps>`
   position: relative;
   z-index: 1;
   overflow-y: hidden;
+  opacity: ${({ shouldAnimate }) => (shouldAnimate ? 0 : 1)};
+  ${({ shouldTriggerAnimation }) =>
+    shouldTriggerAnimation &&
+    css`
+      animation: ${fadeInRight} 0.6s ease-in forwards;
+    `}
   &:after {
     content: '';
     position: absolute;
@@ -36,11 +48,10 @@ export const OurServicesWrapper = styled.div`
 `
 
 export const OurServicesHeaderWrapper = styled.div`
-  max-width: 40%;
+  max-width: 490px;
   text-align: center;
   margin: 159px auto 0 auto;
   @media ${query.lessThanRegular} {
-    max-width: 100%;
     margin: 0 auto;
   }
 `
@@ -54,8 +65,7 @@ export const SlideWrapper = styled.div`
     max-height: 350px;
     min-height: 350px;
     overflow-y: hidden;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 18px 0 rgba(0, 0, 0, 0.08),
-      0 6px 10px 0 rgba(0, 0, 0, 0.04);
+    box-shadow: ${({ theme }) => theme.boxShadow};
   }
   @media ${query.lessThanRegular} {
     .card {

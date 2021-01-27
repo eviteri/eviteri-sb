@@ -11,7 +11,7 @@ import {
 } from './StyledComponents'
 
 export interface MessageUsProps {
-  shouldAnimate: boolean
+  shouldAnimate?: boolean
   clientLogos: Logos
   formTitle: string
   contactFormFields: FormElements
@@ -20,7 +20,7 @@ export interface MessageUsProps {
 }
 
 const MessageUs = ({
-  shouldAnimate,
+  shouldAnimate = false,
   clientLogos,
   formTitle,
   contactFormFields,

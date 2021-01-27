@@ -15,10 +15,22 @@ export const colors = {
   fog: '#f0f5f8',
   lightBlueGrey: '#d4d6d9',
   mint: '#a9e1ba',
-  lightGreen: '#bce9c8'
+  lightGreen: '#bce9c8',
+  black: '#000'
 }
 
 const theme: ThemeProps = {
+  boxShadow:
+    '0 3px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 18px 0 rgba(0, 0, 0, 0.08), 0 6px 10px 0 rgba(0, 0, 0, 0.04)',
+  modal: {
+    background: colors.black,
+    bodyBackground: colors.snow,
+    buttonBackground: colors.fog,
+    buttonColor: colors.midNight
+  },
+  card: {
+    background: colors.snow
+  },
   ourServices: {
     backgroundImage: terrazzoBackground,
     backgroundOverlay: organicShape

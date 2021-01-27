@@ -25,18 +25,6 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <!-- Font Family -->
-    <link rel="stylesheet" href="https://use.typekit.net/noy1nhx.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      charset="UTF-8"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-    />
     <title>React App</title>
   </head>
   <body>
@@ -53,4 +41,25 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    // Prepare the body tag by adding a "js-paused" class
+    document.body.className += ' js-loading'
+
+    // Scroll to top on refresh
+    window.onbeforeunload = function () {
+      console.log('onbeforeunload')
+      window.scrollTo(0, 0)
+    }
+
+    // Listen for when everything has loaded
+    window.addEventListener('load', showPage, false)
+
+    function showPage() {
+      // Remove the "js-paused" class
+      document.body.className = document.body.className.replace(
+        'js-loading',
+        ''
+      )
+    }
+  </script>
 </html>

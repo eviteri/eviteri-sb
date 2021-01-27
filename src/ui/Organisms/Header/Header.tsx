@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLockScreen, useWindowSize } from '../../../customHooks'
 import { NavigationLinks } from '../../../typings/navigation'
 import { SocialMediaArray } from '../../../typings/socialMedia'
 import {
@@ -31,6 +32,16 @@ const Header = ({
   themeMode = 'dark'
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  useLockScreen(isMenuOpen)
+
+  const { width: windowWidth } = useWindowSize()
+
+  useEffect(() => {
+    if (isMenuOpen && windowWidth >= 1024) {
+      setIsMenuOpen(false)
+    }
+  }, [windowWidth, isMenuOpen])
 
   return (
     <HeaderWrapper themeMode={themeMode}>

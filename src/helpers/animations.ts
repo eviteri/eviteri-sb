@@ -1,5 +1,16 @@
 import { keyframes } from 'styled-components'
 
+export const zoomIn = keyframes`
+    0% {
+        opacity: 0;
+        transform: scale3d(.3,.3,.3)
+    }
+
+    50% {
+        opacity: 1
+    }
+`
+
 export const popIn = keyframes`
     0% {
         opacity: 0;
@@ -11,16 +22,26 @@ export const popIn = keyframes`
     }
 `
 
+export const fadeInLeft = keyframes`
+   0% {
+        opacity: 0;
+        transform: translate3d(-100%,0,0)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateZ(0)
+    }
+`
+
 export const fadeInRight = keyframes`
   0% {
       opacity: 0;
-      -webkit-transform: translate3d(100%,0,0);
       transform: translate3d(100%,0,0)
   }
 
   to {
       opacity: 1;
-      -webkit-transform: translateZ(0);
       transform: translateZ(0)
   }
 `
@@ -28,13 +49,11 @@ export const fadeInRight = keyframes`
 export const fadeInUp = keyframes`
     0% {
         opacity: 0;
-        -webkit-transform: translate3d(0,100%,0);
         transform: translate3d(0,100%,0)
     }
 
     to {
         opacity: 1;
-        -webkit-transform: translateZ(0);
         transform: translateZ(0)
     }
 `

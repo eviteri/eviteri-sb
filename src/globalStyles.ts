@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 /*
     createGlobalStyle replaces index.css.
@@ -49,6 +51,13 @@ font-style: normal;
 */
 
 const GlobalStyle = createGlobalStyle`
+    @import url("https://use.typekit.net/noy1nhx.css");
+    
+    .js-loading *, 
+    .js-loading *:before, 
+    .js-loading *:after {
+        animation-play-state: paused !important;
+    }
     body{
         padding: 0;
         margin: 0;
@@ -60,6 +69,9 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1.5;
         letter-spacing: normal;
         font-display: fallback; /* <- this can be added to each @font-face definition */
+    }
+    body * {
+        box-sizing: border-box;
     }
     .sb-show-main.sb-main-padded {
         padding: 0 !important;

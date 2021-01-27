@@ -1,6 +1,16 @@
 export type ThemeModeType = 'dark' | 'light'
 
 export interface ThemeProps {
+  boxShadow: string
+  modal: {
+    background: string
+    bodyBackground: string
+    buttonBackground: string
+    buttonColor: string
+  }
+  card: {
+    background: string
+  }
   ourServices: {
     backgroundImage: string
     backgroundOverlay: string
