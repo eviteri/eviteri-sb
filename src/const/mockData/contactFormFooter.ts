@@ -6,8 +6,8 @@ const PHONE_PATTERN = /^[0-9 .]+$/
 
 const contactFormFooterFields: FormElements = [
   {
-    id: 'user-name',
-    name: 'user-name',
+    id: 'user-name-footer',
+    name: 'user-name-footer',
     type: 'text',
     label: 'Name',
     value: '',
@@ -18,8 +18,8 @@ const contactFormFooterFields: FormElements = [
     placeholder: 'John Smith'
   },
   {
-    id: 'user-email',
-    name: 'user-email',
+    id: 'user-email-footer',
+    name: 'user-email-footer',
     type: 'text',
     label: 'Email',
     value: '',
@@ -29,8 +29,8 @@ const contactFormFooterFields: FormElements = [
     placeholder: 'john.smith@company.com'
   },
   {
-    id: 'user-phone',
-    name: 'user-phone',
+    id: 'user-phone-footer',
+    name: 'user-phone-footer',
     type: 'text',
     label: 'Phone',
     value: '',
@@ -41,8 +41,8 @@ const contactFormFooterFields: FormElements = [
     placeholder: '999.123.4567'
   },
   {
-    id: 'user-message',
-    name: 'user-message',
+    id: 'user-message-footer',
+    name: 'user-message-footer',
     type: 'text',
     label: 'Message',
     value: '',

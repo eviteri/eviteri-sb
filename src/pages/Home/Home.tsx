@@ -56,18 +56,18 @@ const Home = () => {
           onSubmitFormHandler={onSubmitFormHandler}
         />
         <OurServices
-          shouldAnimate={true}
+          shouldAnimate={false}
           title="Our Services"
           description="You deserve better than a one-size-fits-all option. We focus on one thing — building dyanmic content-driven technology that gives strength to your brand's mission and helps you deliver on your goals. "
           cardIcons={mockCardIcons}
         />
         <OurWork
-          shouldAnimate={true}
+          shouldAnimate={false}
           title="Our Work"
           description="A collection of our most recent and most favorite projects that have brought maximal value and impact to our clients."
           ourWorkGallery={mockOurWorkGallery}
         />
-        <WhyChooseUs shouldAnimate={true} data={mockWhyChooseUs} />
+        <WhyChooseUs shouldAnimate={false} data={mockWhyChooseUs} />
         <Footer
           description="Headquartered in Charlotte, NC, our small but nimble team services start-ups, small businesses, and enterprises throughout the US and Canada. We focus on high-quality and efficient web, mobile, and WordPress development. Hablamos Espanol!"
           formTitle="Contact us."

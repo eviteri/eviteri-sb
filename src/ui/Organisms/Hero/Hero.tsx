@@ -3,7 +3,6 @@ import HeroLeftSection from './HeroLeftSection'
 import HeroRightSection from './HeroRightSection'
 import WaveBottom from '../../Shapes/WaveBottom'
 import CurveBottom from '../../Shapes/CurveBottom'
-import { colors } from '../../../theme'
 import { HeroWrapper } from './StyledComponents'
 
 interface HeroProps {
@@ -49,11 +48,7 @@ const Hero = ({
           videoUrl={videoUrl}
         />
       )}
-      {themeMode === 'dark' ? (
-        <WaveBottom waveColor={colors.lightGreen} />
-      ) : (
-        <CurveBottom curveColor={colors.snow} />
-      )}
+      {themeMode === 'dark' ? <WaveBottom /> : <CurveBottom />}
     </HeroWrapper>
   )
 }

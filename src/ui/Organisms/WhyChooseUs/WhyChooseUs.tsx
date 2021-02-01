@@ -19,7 +19,7 @@ export interface WhyChooseUsProps {
 }
 
 const WhyChooseUs = ({ shouldAnimate, data }: WhyChooseUsProps) => {
-  const intersectionRation = 0.5
+  const intersectionRation = 0.1
   const whyChooseUsRef = useRef(null)
 
   const isInViewPort = useInViewPort(intersectionRation, whyChooseUsRef)

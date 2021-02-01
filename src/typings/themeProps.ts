@@ -59,6 +59,7 @@ export interface ThemeProps {
   footer: {
     logo: string
     background: string
+    backgroundColor: string
     color: string
   }
   body: {

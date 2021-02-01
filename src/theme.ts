@@ -79,6 +79,7 @@ const theme: ThemeProps = {
   },
   footer: {
     logo: siteLogo,
+    backgroundColor: colors.midNight,
     background: footerBackground,
     color: colors.snow
   },

@@ -1,37 +1,39 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-interface CurveBottomProps {
-  curveColor?: string
+interface WaveTopProps {
+  waveColor?: string
 }
 
-export const CurveBottomWrapper = styled.div<CurveBottomProps>`
+export const WaveTopWrapper = styled.div<WaveTopProps>`
   position: absolute;
-  bottom: 0;
+  top: -100px;
   left: 0;
   width: 100%;
   overflow: hidden;
   line-height: 0;
+  transform: rotateY(180deg);
 
   svg {
     position: relative;
     display: block;
-    width: calc(200% + 1.3px);
-    height: 150px;
+    width: calc(144% + 1.3px);
+    height: 100px;
+    bottom: -1px;
   }
 
   .shape-fill {
-    ${({ curveColor }) =>
-      curveColor &&
+    ${({ waveColor }) =>
+      waveColor &&
       css`
-        fill: ${curveColor};
+        fill: ${waveColor};
       `}
   }
 `
 
-const CurveBottom = ({ curveColor }: CurveBottomProps) => {
+const WaveTop = ({ waveColor }: WaveTopProps) => {
   return (
-    <CurveBottomWrapper curveColor={curveColor} className="curve-bottom">
+    <WaveTopWrapper waveColor={waveColor} className="wave-top">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
@@ -43,8 +45,8 @@ const CurveBottom = ({ curveColor }: CurveBottomProps) => {
           className="shape-fill"
         ></path>
       </svg>
-    </CurveBottomWrapper>
+    </WaveTopWrapper>
   )
 }
 
-export default React.memo(CurveBottom)
+export default React.memo(WaveTop)

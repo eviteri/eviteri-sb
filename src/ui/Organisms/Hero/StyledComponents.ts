@@ -42,6 +42,17 @@ export const HeroWrapper = styled.div<StyledProps>`
     color: ${({ theme, themeMode }) =>
       themeMode === 'dark' ? theme.hero.color : theme.hero.colorAlt};
   }
+  .wave-bottom {
+    .shape-fill {
+      fill: ${({ theme }) => theme.body.backgroundSolid};
+    }
+  }
+
+  .curve-bottom {
+    .shape-fill {
+      fill: ${({ theme }) => theme.hero.color};
+    }
+  }
 
   @media ${query.lessThanRegular} {
     min-height: 50vh;

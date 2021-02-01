@@ -1,8 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 interface WaveBottomProps {
-  waveColor: string
+  waveColor?: string
 }
 
 export const WaveBottomWrapper = styled.div<WaveBottomProps>`
@@ -22,13 +22,17 @@ export const WaveBottomWrapper = styled.div<WaveBottomProps>`
   }
 
   .shape-fill {
-    fill: ${({ waveColor }) => waveColor};
+    ${({ waveColor }) =>
+      waveColor &&
+      css`
+        fill: ${waveColor};
+      `}
   }
 `
 
 const WaveBottom = ({ waveColor }: WaveBottomProps) => {
   return (
-    <WaveBottomWrapper waveColor={waveColor}>
+    <WaveBottomWrapper waveColor={waveColor} className="wave-bottom">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
