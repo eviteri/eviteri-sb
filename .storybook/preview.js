@@ -2,6 +2,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import theme from '../src/theme'
 import GlobalStyle from '../src/globalStyles'
+import '../src/const/iconLibrary'
 
 export const decorators = [
   (Story) => (

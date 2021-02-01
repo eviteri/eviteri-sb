@@ -5,7 +5,7 @@ import { Meta } from '@storybook/react/types-6-0'
 import mockClientLogos from '../../../const/mockData/clientLogos'
 import contactFormFields from '../../../const/mockData/contactFormFields'
 import { FormElements } from '../../../typings/contactForm'
-import MessageUs, { MessageUsProps } from './MessageUs'
+import MessageUs from './MessageUs'
 
 const TestWrapper = styled.div`
   background-color: ${({ theme }) => theme.body.backgroundSolid};
@@ -19,23 +19,21 @@ const TestWrapper = styled.div`
   }
 `
 
-export const Default = (args: MessageUsProps) => {
+export const Default = () => {
   return (
     <TestWrapper>
-      <MessageUs {...args} />
+      <MessageUs
+        shouldAnimate={false}
+        clientLogos={mockClientLogos}
+        formTitle="Work with us."
+        contactFormFields={contactFormFields}
+        submitButtonLabel="SUBMIT"
+        onSubmitFormHandler={(formElements: FormElements) => {
+          alert('Form Submitted')
+        }}
+      />
     </TestWrapper>
   )
-}
-
-Default.args = {
-  shouldAnimate: false,
-  clientLogos: mockClientLogos,
-  formTitle: 'Work with us.',
-  contactFormFields: contactFormFields,
-  submitButtonLabel: 'SUBMIT',
-  onSubmitFormHandler: (formElements: FormElements) => {
-    alert('Form Submitted')
-  }
 }
 
 export default {

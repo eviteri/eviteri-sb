@@ -24,7 +24,8 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <!-- Font Family -->
+    <!-- Adobe Font Family -->
+    <link rel="stylesheet" href="https://use.typekit.net/noy1nhx.css" />
     <title>React App</title>
   </head>
   <body>
@@ -46,10 +47,10 @@
     document.body.className += ' js-loading'
 
     // Scroll to top on refresh
-    window.onbeforeunload = function () {
-      console.log('onbeforeunload')
-      window.scrollTo(0, 0)
-    }
+    // window.onbeforeunload = function () {
+    //   console.log('onbeforeunload')
+    //   window.scrollTo(0, 0)
+    // }
 
     // Listen for when everything has loaded
     window.addEventListener('load', showPage, false)

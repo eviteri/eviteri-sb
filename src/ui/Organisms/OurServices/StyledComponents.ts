@@ -3,20 +3,14 @@ import query from '../../../const/mediaQueries'
 import { fadeInRight } from '../../../helpers/animations'
 
 interface StyledProps {
-  shouldAnimate: boolean
-  shouldTriggerAnimation: boolean
+  shouldAnimate?: boolean
+  shouldTriggerAnimation?: boolean
 }
 
 export const OurServicesOutterWrapper = styled.div<StyledProps>`
   position: relative;
   z-index: 1;
   overflow-y: hidden;
-  opacity: ${({ shouldAnimate }) => (shouldAnimate ? 0 : 1)};
-  ${({ shouldTriggerAnimation }) =>
-    shouldTriggerAnimation &&
-    css`
-      animation: ${fadeInRight} 0.6s ease-in forwards;
-    `}
   &:after {
     content: '';
     position: absolute;
@@ -45,6 +39,15 @@ export const OurServicesWrapper = styled.div`
   @media ${query.lessThanRegular} {
     padding-top: unset;
   }
+`
+
+export const InnerContentWrapper = styled.div<StyledProps>`
+  opacity: ${({ shouldAnimate }) => (shouldAnimate ? 0 : 1)};
+  ${({ shouldTriggerAnimation }) =>
+    shouldTriggerAnimation &&
+    css`
+      animation: ${fadeInRight} 0.6s ease-in forwards;
+    `}
 `
 
 export const OurServicesHeaderWrapper = styled.div`

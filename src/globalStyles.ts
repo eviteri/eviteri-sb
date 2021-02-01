@@ -51,8 +51,6 @@ font-style: normal;
 */
 
 const GlobalStyle = createGlobalStyle`
-    @import url("https://use.typekit.net/noy1nhx.css");
-    
     .js-loading *, 
     .js-loading *:before, 
     .js-loading *:after {

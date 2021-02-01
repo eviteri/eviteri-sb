@@ -4,6 +4,7 @@ import { H2, H3, P } from '../../typography'
 import {
   OurServicesOutterWrapper,
   OurServicesWrapper,
+  InnerContentWrapper,
   OurServicesHeaderWrapper,
   OurServicesFooterWrapper,
   SlideWrapper,
@@ -65,33 +66,34 @@ const OurServices = ({
   const shouldTriggerAnimation = isInViewPort && shouldAnimate
 
   return (
-    <OurServicesOutterWrapper
-      ref={ourServicesSectionRef}
-      shouldAnimate={shouldAnimate}
-      shouldTriggerAnimation={shouldTriggerAnimation}
-    >
+    <OurServicesOutterWrapper ref={ourServicesSectionRef}>
       <OurServicesWrapper>
-        <OurServicesHeaderWrapper>
-          <H2>{title}</H2>
-          <P>{description}</P>
-        </OurServicesHeaderWrapper>
-        <OurServicesFooterWrapper>
-          <Slider {...settings}>
-            {cardIcons.map((cardIcon: CardIcon) => {
-              const { iconImage, title, description } = cardIcon
-              return (
-                <SlideWrapper key={title} className="SlideWrapper">
-                  <Card iconImage={iconImage}>
-                    <CardInnerContent>
-                      <H3>{title}</H3>
-                      <P>{description}</P>
-                    </CardInnerContent>
-                  </Card>
-                </SlideWrapper>
-              )
-            })}
-          </Slider>
-        </OurServicesFooterWrapper>
+        <InnerContentWrapper
+          shouldAnimate={shouldAnimate}
+          shouldTriggerAnimation={shouldTriggerAnimation}
+        >
+          <OurServicesHeaderWrapper>
+            <H2>{title}</H2>
+            <P>{description}</P>
+          </OurServicesHeaderWrapper>
+          <OurServicesFooterWrapper>
+            <Slider {...settings}>
+              {cardIcons.map((cardIcon: CardIcon) => {
+                const { iconImage, title, description } = cardIcon
+                return (
+                  <SlideWrapper key={title} className="SlideWrapper">
+                    <Card iconImage={iconImage}>
+                      <CardInnerContent>
+                        <H3>{title}</H3>
+                        <P>{description}</P>
+                      </CardInnerContent>
+                    </Card>
+                  </SlideWrapper>
+                )
+              })}
+            </Slider>
+          </OurServicesFooterWrapper>
+        </InnerContentWrapper>
       </OurServicesWrapper>
     </OurServicesOutterWrapper>
   )

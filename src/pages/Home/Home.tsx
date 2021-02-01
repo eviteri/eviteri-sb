@@ -4,6 +4,7 @@ import mockSocialMediaLinks from '../../const/mockData/mockSocialMediaLinks'
 import mockClientLogos from '../../const/mockData/clientLogos'
 import mockCardIcons from '../../const/mockData/cardIcons'
 import mockOurWorkGallery from '../../const/mockData/ourWorkGallery'
+import mockWhyChooseUs from '../../const/mockData/whyChooseUs'
 import contactFormFields from '../../const/mockData/contactFormFields'
 import homeHeroImage from '../../assets/backgrounds/HomeHeroImage.png'
 import { FormElements } from '../../typings/contactForm'
@@ -13,6 +14,7 @@ import Hero from '../../ui/Organisms/Hero'
 import MessageUs from '../../ui/Organisms/MessageUs'
 import OurServices from '../../ui/Organisms/OurServices'
 import OurWork from '../../ui/Organisms/OurWork'
+import WhyChooseUs from '../../ui/Organisms/WhyChooseUs'
 import { PageWrapper, HeroSection } from './StyledComponents'
 
 const Home = () => {
@@ -63,6 +65,7 @@ const Home = () => {
           description="A collection of our most recent and most favorite projects that have brought maximal value and impact to our clients."
           ourWorkGallery={mockOurWorkGallery}
         />
+        <WhyChooseUs shouldAnimate={true} data={mockWhyChooseUs} />
         <div>
           START Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra
