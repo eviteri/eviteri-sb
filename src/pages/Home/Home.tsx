@@ -6,6 +6,7 @@ import mockCardIcons from '../../const/mockData/cardIcons'
 import mockOurWorkGallery from '../../const/mockData/ourWorkGallery'
 import mockWhyChooseUs from '../../const/mockData/whyChooseUs'
 import contactFormFields from '../../const/mockData/contactFormFields'
+import contactFormFooterFields from '../../const/mockData/contactFormFooter'
 import homeHeroImage from '../../assets/backgrounds/HomeHeroImage.png'
 import { FormElements } from '../../typings/contactForm'
 
@@ -15,6 +16,7 @@ import MessageUs from '../../ui/Organisms/MessageUs'
 import OurServices from '../../ui/Organisms/OurServices'
 import OurWork from '../../ui/Organisms/OurWork'
 import WhyChooseUs from '../../ui/Organisms/WhyChooseUs'
+import Footer from '../../ui/Organisms/Footer'
 import { PageWrapper, HeroSection } from './StyledComponents'
 
 const Home = () => {
@@ -66,28 +68,16 @@ const Home = () => {
           ourWorkGallery={mockOurWorkGallery}
         />
         <WhyChooseUs shouldAnimate={true} data={mockWhyChooseUs} />
-        <div>
-          START Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra
-          justo nec ultrices dui sapien eget mi proin sed. Viverra adipiscing at
-          in tellus integer feugiat scelerisque varius morbi. Turpis massa sed
-          elementum tempus egestas. Pulvinar neque laoreet suspendisse interdum
-          consectetur. Bibendum ut tristique et egestas quis ipsum suspendisse
-          ultrices gravida. Amet mattis vulputate enim nulla aliquet porttitor
-          lacus luctus accumsan. Velit sed ullamcorper morbi tincidunt ornare
-          massa. Diam vulputate ut pharetra sit amet. Scelerisque varius morbi
-          enim nunc. At volutpat diam ut venenatis. Gravida quis blandit turpis
-          cursus in hac habitasse platea. Purus gravida quis blandit turpis
-          cursus. Felis donec et odio pellentesque diam volutpat commodo sed
-          egestas. Adipiscing commodo elit at imperdiet dui accumsan sit amet
-          nulla. Sit amet est placerat in egestas erat imperdiet sed. Cras
-          semper auctor neque vitae tempus quam pellentesque. Consectetur
-          adipiscing elit ut aliquam purus sit amet. Blandit massa enim nec dui
-          nunc mattis enim. Varius duis at
-          <a href="google.com" target="_blank">
-            Test Component{' '}
-          </a>
-        </div>
+        <Footer
+          description="Headquartered in Charlotte, NC, our small but nimble team services start-ups, small businesses, and enterprises throughout the US and Canada. We focus on high-quality and efficient web, mobile, and WordPress development. Hablamos Espanol!"
+          formTitle="Contact us."
+          submitButtonLabel="SUBMIT"
+          contactFormFields={contactFormFooterFields}
+          onSubmitFormHandler={onSubmitFormHandler}
+          linkedInUrl="#"
+          instagramUrl="#"
+          githubUrl="#"
+        />
       </main>
     </PageWrapper>
   )

@@ -56,6 +56,11 @@ export interface ThemeProps {
       hover: string
     }
   }
+  footer: {
+    logo: string
+    background: string
+    color: string
+  }
   body: {
     backgroundSolid: string
     backgroundLinear: string

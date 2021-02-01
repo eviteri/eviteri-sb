@@ -2,6 +2,7 @@ import siteLogo from './assets/logos/eviteri-reverse.png'
 import siteLogoAlt from './assets/logos/eviteri-register.png'
 import terrazzoBackground from './assets/backgrounds/terrazzo.png'
 import organicShape from './assets/backgrounds/organic-shapes.png'
+import footerBackground from './assets/backgrounds/footerBackground.png'
 import ThemeProps from './typings/themeProps'
 
 export const colors = {
@@ -75,6 +76,11 @@ const theme: ThemeProps = {
       background: colors.midNight,
       hover: 'rgba(44,55,71, 0.8)'
     }
+  },
+  footer: {
+    logo: siteLogo,
+    background: footerBackground,
+    color: colors.snow
   },
   body: {
     backgroundSolid: colors.lightGreen,
