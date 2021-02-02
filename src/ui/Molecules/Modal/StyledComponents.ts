@@ -1,11 +1,13 @@
 import styled, { css } from 'styled-components'
 import { H2, P } from '../../typography'
-import { zoomIn } from '../../../helpers/animations'
+import { zoomIn, zoomOut } from '../../../helpers/animations'
 import query from '../../../const/mediaQueries'
 
 interface StyledProps {
-  backgroundImage: string | undefined
+  backgroundImage?: string | undefined
   mobileBackgroundImage?: string | undefined
+  triggerCloseAnimation?: boolean
+  hasModalContentWrapperFineshedAnimating?: boolean
 }
 
 export const ModalWrapper = styled.div`
@@ -24,16 +26,29 @@ export const ModalWrapper = styled.div`
   }
 `
 
-export const ModalContentWrapper = styled.div`
+export const ModalContentWrapper = styled.div<StyledProps>`
   box-sizing: border-box;
   width: 91vw;
   background-color: ${({ theme }) => theme.modal.bodyBackground};
   padding: 30px;
   border-radius: 15px;
-  animation: ${zoomIn} 0.6s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
+  ${({ triggerCloseAnimation }) =>
+    triggerCloseAnimation
+      ? css`
+          animation: ${zoomOut} 0.8s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
+        `
+      : css`
+          animation: ${zoomIn} 0.6s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
+        `}
   @media ${query.lessThanSmall} {
     margin-top: 20%;
   }
+`
+
+export const ModalInnerContentWrapper = styled.div<StyledProps>`
+  opacity: ${({ hasModalContentWrapperFineshedAnimating }) =>
+    hasModalContentWrapperFineshedAnimating ? 1 : 0};
+  transition: opacity 0.2s ease-in;
 `
 
 export const ModalHeaderWrapper = styled.div`

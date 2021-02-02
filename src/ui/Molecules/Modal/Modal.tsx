@@ -13,6 +13,7 @@ import {
 import {
   ModalWrapper,
   ModalContentWrapper,
+  ModalInnerContentWrapper,
   ModalHeaderWrapper,
   ModalTitle,
   ModalCloseButton,
@@ -38,6 +39,8 @@ const Modal = ({
   currentImageIndex = 0,
   closeModalHandler
 }: ModalProps) => {
+  const [shouldClose, setShouldClose] = useState(false)
+  const [hasAnimationEnded, setHasAnimationEnded] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(currentImageIndex)
   const sliderRef = useRef<Slider>(null)
 
@@ -59,6 +62,13 @@ const Modal = ({
     } else {
       setCurrentIndex(gallery.length - 1)
     }
+  }
+
+  const onCloseButtonHandler = () => {
+    setShouldClose(true)
+    setTimeout(() => {
+      closeModalHandler()
+    }, 200)
   }
 
   const sliderSettings = {
@@ -107,41 +117,48 @@ const Modal = ({
 
   return (
     <ModalWrapper>
-      <ModalContentWrapper>
-        <ModalHeaderWrapper>
-          <ModalTitle>{title}</ModalTitle>
-          <ModalCloseButton onClick={closeModalHandler}>
-            <FontAwesomeIcon icon={faTimes} />
-          </ModalCloseButton>
-        </ModalHeaderWrapper>
-        <ModalBoddyWrapper>
-          <Slider {...sliderSettings} ref={sliderRef}>
-            {gallery.map((cardIcon: OurWorkGalleryDetail) => {
-              const { large, small, id } = cardIcon
-              return (
-                <SlideWrapper key={id} className="SlideWrapper">
-                  <Slide
-                    backgroundImage={large}
-                    mobileBackgroundImage={small}
-                  />
-                </SlideWrapper>
-              )
-            })}
-          </Slider>
-        </ModalBoddyWrapper>
-        <ModalFooterWrapper>
-          <ModalCounter>{`${currentIndex + 1} / ${
-            gallery.length
-          }`}</ModalCounter>
-          <ModalNavigationWrapper>
-            <ModalArrowButton onClick={onBackButtonHandler}>
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </ModalArrowButton>
-            <ModalArrowButton onClick={onNextButtonHandler}>
-              <FontAwesomeIcon icon={faArrowRight} />
-            </ModalArrowButton>
-          </ModalNavigationWrapper>
-        </ModalFooterWrapper>
+      <ModalContentWrapper
+        triggerCloseAnimation={shouldClose}
+        onAnimationEnd={() => setHasAnimationEnded(true)}
+      >
+        <ModalInnerContentWrapper
+          hasModalContentWrapperFineshedAnimating={hasAnimationEnded}
+        >
+          <ModalHeaderWrapper>
+            <ModalTitle>{title}</ModalTitle>
+            <ModalCloseButton onClick={onCloseButtonHandler}>
+              <FontAwesomeIcon icon={faTimes} />
+            </ModalCloseButton>
+          </ModalHeaderWrapper>
+          <ModalBoddyWrapper>
+            <Slider {...sliderSettings} ref={sliderRef}>
+              {gallery.map((cardIcon: OurWorkGalleryDetail) => {
+                const { large, small, id } = cardIcon
+                return (
+                  <SlideWrapper key={id} className="SlideWrapper">
+                    <Slide
+                      backgroundImage={large}
+                      mobileBackgroundImage={small}
+                    />
+                  </SlideWrapper>
+                )
+              })}
+            </Slider>
+          </ModalBoddyWrapper>
+          <ModalFooterWrapper>
+            <ModalCounter>{`${currentIndex + 1} / ${
+              gallery.length
+            }`}</ModalCounter>
+            <ModalNavigationWrapper>
+              <ModalArrowButton onClick={onBackButtonHandler}>
+                <FontAwesomeIcon icon={faArrowLeft} />
+              </ModalArrowButton>
+              <ModalArrowButton onClick={onNextButtonHandler}>
+                <FontAwesomeIcon icon={faArrowRight} />
+              </ModalArrowButton>
+            </ModalNavigationWrapper>
+          </ModalFooterWrapper>
+        </ModalInnerContentWrapper>
       </ModalContentWrapper>
     </ModalWrapper>
   )

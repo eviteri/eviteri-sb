@@ -11,6 +11,21 @@ export const zoomIn = keyframes`
     }
 `
 
+export const zoomOut = keyframes`
+     0% {
+        opacity: 1
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale3d(.3,.3,.3)
+    }
+
+    to {
+        opacity: 0
+    }
+`
+
 export const popIn = keyframes`
     0% {
         opacity: 0;
