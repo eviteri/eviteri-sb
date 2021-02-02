@@ -8,6 +8,9 @@ import arcaThumbnail from '../../../assets/workGallery/arcaThumbnail.png'
 
 const TestWrapper = styled.div`
   text-align: center;
+  .card {
+    max-width: 334px;
+  }
 `
 
 export const Default = () => {

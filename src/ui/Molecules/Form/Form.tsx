@@ -7,7 +7,11 @@ import {
 } from './StyledComponents'
 import TextField from '../../Attoms/TextField'
 import TextArea from '../../Attoms/TextArea'
-import { FormElements, FormElement } from '../../../typings/contactForm'
+import {
+  FormElements,
+  FormElement,
+  InputTextBehavior
+} from '../../../typings/form'
 import {
   updateForm,
   validateInput,
@@ -47,11 +51,13 @@ const Form = ({
       const element = e.currentTarget
       const { value, id } = element
 
-      const elementType = element.getAttribute('data-type')
+      const behavior = element.getAttribute(
+        'data-behavior'
+      ) as InputTextBehavior
       let error = ''
 
-      if (typeof elementType === 'string') {
-        error = validateInput(elementType, value)
+      if (typeof behavior === 'string') {
+        error = validateInput(behavior, value)
       }
 
       const updatedFormValues = updateForm(formElements, id, value, error)
@@ -94,12 +100,14 @@ const Form = ({
       <FormTitle>{title}</FormTitle>
       <FormWrapper>
         {formElements.map((input: FormElement) => {
-          const { id, type } = input
+          const { id, type, behavior } = input
+
           if (type === 'text') {
             return (
               <TextField
                 {...input}
                 key={id}
+                behavior={behavior as InputTextBehavior}
                 onChange={onChangeHandler}
                 onBlur={onBlurHandler}
               />

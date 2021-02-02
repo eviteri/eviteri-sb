@@ -27,6 +27,7 @@ export const FooterInnerWrapper = styled.div`
   @media ${query.lessThanRegular} {
     flex-direction: column;
     padding: 32px;
+    align-items: center;
   }
   @media ${query.lessThanMedium} {
     width: 100%;
@@ -34,7 +35,7 @@ export const FooterInnerWrapper = styled.div`
   }
 `
 
-export const FooterLogoWrapper = styled.div`
+export const FooterLogoWrapper = styled.a`
   margin-bottom: 29px;
 `
 

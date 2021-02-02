@@ -9,7 +9,6 @@ interface StyledProps {
 export const CardWrapper = styled.div<StyledProps>`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.card.background};
-  max-width: 334px;
   padding: 60px 40px;
   margin: 0 auto;
   border-radius: 10px;
@@ -35,6 +34,7 @@ export const CardThumbnailWrapper = styled.div<StyledProps>`
   background-size: cover;
   background-repeat: no-repeat;
   margin: -60px -40px 0px -40px;
+  cursor: pointer;
 `
 
 export const CardIconWrapper = styled.div`

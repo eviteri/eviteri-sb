@@ -65,6 +65,7 @@ export const OurServicesFooterWrapper = styled.div`
 
 export const SlideWrapper = styled.div`
   .card {
+    max-width: 334px;
     max-height: 350px;
     min-height: 350px;
     overflow-y: hidden;

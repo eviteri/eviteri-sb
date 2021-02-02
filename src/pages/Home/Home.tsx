@@ -8,7 +8,7 @@ import mockWhyChooseUs from '../../const/mockData/whyChooseUs'
 import contactFormFields from '../../const/mockData/contactFormFields'
 import contactFormFooterFields from '../../const/mockData/contactFormFooter'
 import homeHeroImage from '../../assets/backgrounds/HomeHeroImage.png'
-import { FormElements } from '../../typings/contactForm'
+import { FormElements } from '../../typings/form'
 
 import Header from '../../ui/Organisms/Header'
 import Hero from '../../ui/Organisms/Hero'
@@ -69,6 +69,7 @@ const Home = () => {
         />
         <WhyChooseUs shouldAnimate={false} data={mockWhyChooseUs} />
         <Footer
+          siteLogoUrl="#home"
           description="Headquartered in Charlotte, NC, our small but nimble team services start-ups, small businesses, and enterprises throughout the US and Canada. We focus on high-quality and efficient web, mobile, and WordPress development. Hablamos Espanol!"
           formTitle="Contact us."
           submitButtonLabel="SUBMIT"

@@ -1,4 +1,4 @@
-import { FormElements } from '../../../typings/contactForm'
+import { FormElements, InputTextBehavior } from '../../../typings/form'
 
 export const updateForm = (
   formElements: FormElements,
@@ -20,7 +20,7 @@ export const updateForm = (
   return updatedFormValues
 }
 
-export const validateInput = (elementType: string, value: string) => {
+export const validateInput = (behavior: InputTextBehavior, value: string) => {
   let error = ''
   const phoneFormat = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
   const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -30,12 +30,12 @@ export const validateInput = (elementType: string, value: string) => {
     return error
   }
 
-  if (elementType === 'phone' && !value.match(phoneFormat)) {
+  if (behavior === 'phone' && !value.match(phoneFormat)) {
     error = 'Invalid Phone Number.'
     return error
   }
 
-  if (elementType === 'email' && !value.match(emailFormat)) {
+  if (behavior === 'email' && !value.match(emailFormat)) {
     error = 'Invalid Email Address.'
     return error
   }

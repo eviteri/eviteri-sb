@@ -1,7 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
 import TextArea from './TextArea'
-import { MESSAGE_PATTERN } from '../../../const/mockData/contactFormFields'
 
 export const Default = () => {
   return (
@@ -12,7 +11,6 @@ export const Default = () => {
       label="Message"
       placeholder="I need help with"
       maxLength={300}
-      matchPattern={MESSAGE_PATTERN}
       required={true}
       error=""
       onChange={() => {}}
@@ -30,7 +28,6 @@ export const Error = () => {
       label="Message"
       placeholder="I need help with"
       maxLength={300}
-      matchPattern={MESSAGE_PATTERN}
       required={true}
       error="Some Error"
       onChange={() => {}}

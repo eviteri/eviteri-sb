@@ -12,20 +12,25 @@ export interface CardProps {
   thumbnailIamge?: string
   withBoxShadow?: boolean
   children: ReactNode
+  onImageClickHanlder?: () => void
 }
 
 const Card = ({
   thumbnailIamge,
   iconImage,
   withBoxShadow = false,
-  children
+  children,
+  onImageClickHanlder
 }: CardProps) => {
   return (
     <CardWrapper className="card" withBoxShadow={withBoxShadow}>
       {(thumbnailIamge || iconImage) && (
         <CardHeader>
           {thumbnailIamge && !iconImage && (
-            <CardThumbnailWrapper backgroundImage={thumbnailIamge} />
+            <CardThumbnailWrapper
+              backgroundImage={thumbnailIamge}
+              onClick={onImageClickHanlder}
+            />
           )}
           {iconImage && !thumbnailIamge && (
             <CardIconWrapper>

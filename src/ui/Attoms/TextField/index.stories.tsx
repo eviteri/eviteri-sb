@@ -1,27 +1,30 @@
-import React from 'react'
+import React, { FormEvent, useState } from 'react'
 import { Meta } from '@storybook/react/types-6-0'
 import TextField, { InputProps } from './TextField'
-import {
-  NAME_PATTERN,
-  EMAIL_PATTERN,
-  PHONE_PATTERN
-} from '../../../const/mockData/contactFormFields'
 
 export const Name = (args: InputProps) => {
+  const [inputValue, setInputValue] = useState('')
+
+  const onChangeHandler = (
+    e: FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>
+  ): void => {
+    setInputValue(e.currentTarget.value)
+  }
+
   return (
     <TextField
       {...args}
-      matchPattern={NAME_PATTERN}
-      onChange={() => {}}
+      value={inputValue}
+      onChange={onChangeHandler}
       onBlur={() => {}}
     />
   )
 }
 Name.args = {
   id: 'user-name',
+  behavior: 'name',
   name: 'user-name',
   label: 'Name',
-  value: '',
   maxLength: 20,
   required: true,
   error: '',
@@ -29,60 +32,84 @@ Name.args = {
 }
 
 export const Email = (args: InputProps) => {
+  const [inputValue, setInputValue] = useState(args.value)
+
+  const onChangeHandler = (
+    e: FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>
+  ): void => {
+    setInputValue(e.currentTarget.value)
+  }
+
   return (
     <TextField
       {...args}
-      matchPattern={EMAIL_PATTERN}
-      onChange={() => {}}
+      value={inputValue}
+      onChange={onChangeHandler}
       onBlur={() => {}}
     />
   )
 }
 Email.args = {
   id: 'user-email',
+  behavior: 'email',
   name: 'user-email',
   label: 'Email',
-  value: '',
   required: true,
   error: '',
   placeholder: 'john.smith@company.com'
 }
 
 export const Phone = (args: InputProps) => {
+  const [inputValue, setInputValue] = useState(args.value)
+
+  const onChangeHandler = (
+    e: FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>
+  ): void => {
+    setInputValue(e.currentTarget.value)
+  }
+
   return (
     <TextField
       {...args}
-      matchPattern={PHONE_PATTERN}
-      onChange={() => {}}
+      value={inputValue}
+      onChange={onChangeHandler}
       onBlur={() => {}}
     />
   )
 }
 Phone.args = {
   id: 'user-phone',
+  behavior: 'phone',
   name: 'user-phone',
   label: 'Phone',
-  value: '',
   required: true,
   error: '',
   placeholder: 'john.smith@company.com'
 }
 
 export const Error = (args: InputProps) => {
+  const [inputValue, setInputValue] = useState(args.value)
+
+  const onChangeHandler = (
+    e: FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>
+  ): void => {
+    setInputValue(e.currentTarget.value)
+  }
+
   return (
     <TextField
       {...args}
-      matchPattern={NAME_PATTERN}
-      onChange={() => {}}
+      value={inputValue}
+      onChange={onChangeHandler}
       onBlur={() => {}}
     />
   )
 }
 Error.args = {
   id: 'user-name',
+  behavior: 'name',
   name: 'user-name',
   label: 'Name',
-  value: '',
   maxLength: 20,
   required: true,
   error: 'Some Error',

@@ -19,9 +19,10 @@ import Form from '../../../ui/Molecules/Form'
 import LinkedInLogo from '../../../assets/socialMedia/linked-in-white.png'
 import InstagramLogo from '../../../assets/socialMedia/instagram-white.png'
 import GitHubLogo from '../../../assets/socialMedia/github-white.png'
-import { FormElements } from '../../../typings/contactForm'
+import { FormElements } from '../../../typings/form'
 
 export interface FooterProps {
+  siteLogoUrl: string
   description: string
   formTitle: string
   contactFormFields: FormElements
@@ -34,6 +35,7 @@ export interface FooterProps {
 }
 
 const Footer = ({
+  siteLogoUrl,
   description,
   formTitle,
   contactFormFields,
@@ -51,7 +53,7 @@ const Footer = ({
       <FooterContentWrapper>
         <FooterInnerWrapper>
           <FooterLeftWrapper>
-            <FooterLogoWrapper>
+            <FooterLogoWrapper href={siteLogoUrl}>
               <FooterLogo src="" alt="Site Logo" />
             </FooterLogoWrapper>
             <FooterDescription>{description}</FooterDescription>

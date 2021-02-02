@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import query from '../../../const/mediaQueries'
 import shapeImage from '../../../assets/backgrounds/shape.png'
 
@@ -23,38 +23,43 @@ export const HeaderWrapper = styled.header<StyledProps>`
   }
 `
 
-export const LogoWrapper = styled.div<StyledProps>`
-  box-sizing: border-box;
-  a {
-    ${({ theme, themeMode }) => {
-      const url = themeMode === 'light' ? theme.logo.imageAlt : theme.logo.image
-      return `content: url(${url});`
-    }}
-    background-position: center;
-    width: ${({ theme }) => theme.logo.width};
-    height: ${({ theme }) => theme.logo.height};
-  }
+export const HeaderLeftWrapper = styled.div<StyledProps>`
   @media ${query.lessThanLarge} {
     background-color: ${({ theme, isMenuOpen }) =>
       isMenuOpen ? theme.navigation.backgroundAlt : 'inherit'};
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px 32px;
     width: 100%;
-    a {
-      ${({ isMenuOpen, theme, themeMode }) => {
-        if (themeMode === 'dark' && isMenuOpen) {
-          return `content: url(${theme.logo.imageAlt});`
-        }
-        return ''
-      }}
-      width: 170px;
-      height: 24px;
-    }
   }
 `
+
+export const HeaderLogoWrapper = styled.a`
+  display: flex;
+`
+
+export const HeaderLogo = styled.img<StyledProps>`
+  width: ${({ theme }) => theme.logo.width};
+  height: ${({ theme }) => theme.logo.height};
+  ${({ theme, themeMode }) => {
+    const url = themeMode === 'light' ? theme.logo.imageAlt : theme.logo.image
+    return css`
+      content: url(${url});
+    `
+  }}
+  @media ${query.lessThanLarge} {
+    ${({ isMenuOpen, theme, themeMode }) =>
+      themeMode === 'dark' &&
+      isMenuOpen &&
+      css`
+        content: url(${theme.logo.imageAlt});
+      `}
+    width: 170px;
+    height: 24px;
+  }
+`
+
 export const HamburgerWrapper = styled.div`
   display: none;
   @media ${query.lessThanLarge} {
@@ -69,7 +74,7 @@ export const NavigationWrapper = styled.div`
     flex-direction: column;
   }
 `
-export const Nav = styled.nav<StyledProps>`
+export const HeaderRightWrapper = styled.nav<StyledProps>`
   display: flex;
   @media ${query.lessThanLarge} {
     position: absolute;

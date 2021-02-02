@@ -4,10 +4,12 @@ import { NavigationLinks } from '../../../typings/navigation'
 import { SocialMediaArray } from '../../../typings/socialMedia'
 import {
   HeaderWrapper,
-  LogoWrapper,
+  HeaderLeftWrapper,
+  HeaderLogoWrapper,
+  HeaderLogo,
   HamburgerWrapper,
   NavigationWrapper,
-  Nav,
+  HeaderRightWrapper,
   WorkWithUsButtonWrapper,
   FooterNavigationWrapper,
   NavigationContactWrapper
@@ -46,8 +48,16 @@ const Header = ({
   return (
     <HeaderWrapper themeMode={themeMode}>
       <NavigationWrapper>
-        <LogoWrapper isMenuOpen={isMenuOpen} themeMode={themeMode}>
-          <a href={siteLogoUrl}>Site Logo</a>
+        <HeaderLeftWrapper isMenuOpen={isMenuOpen}>
+          <HeaderLogoWrapper href={siteLogoUrl}>
+            <HeaderLogo
+              src=""
+              alt="Site Logo"
+              isMenuOpen={isMenuOpen}
+              themeMode={themeMode}
+              width="170px"
+            />
+          </HeaderLogoWrapper>
           <HamburgerWrapper>
             <Button
               themeMode={themeMode}
@@ -56,8 +66,8 @@ const Header = ({
               onClick={() => setIsMenuOpen((prevState) => !prevState)}
             />
           </HamburgerWrapper>
-        </LogoWrapper>
-        <Nav isMenuOpen={isMenuOpen}>
+        </HeaderLeftWrapper>
+        <HeaderRightWrapper isMenuOpen={isMenuOpen}>
           <Navigation navigationLinks={navLinks} themeMode={themeMode} />
           <WorkWithUsButtonWrapper>
             <Link
@@ -83,7 +93,7 @@ const Header = ({
               </Link>
             </NavigationContactWrapper>
           </FooterNavigationWrapper>
-        </Nav>
+        </HeaderRightWrapper>
       </NavigationWrapper>
     </HeaderWrapper>
   )

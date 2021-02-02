@@ -4,6 +4,7 @@ import React, {
   useState,
   useEffect
 } from 'react'
+import { MESSAGE_PATTERN } from '../../../typings/form'
 import {
   TextAreaWrapper,
   LabelWrapper,
@@ -15,7 +16,6 @@ export interface TextareaProps {
   placeholder?: string
   isDisabled?: boolean
   value?: string
-  matchPattern?: RegExp
   label?: string
   name?: string
   id?: string
@@ -40,7 +40,6 @@ const Textarea = ({
   name = 'ev-text-area-name',
   id = 'ev-text-area-id',
   value,
-  matchPattern,
   className,
   maxLength,
   onChange,
@@ -55,12 +54,12 @@ const Textarea = ({
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value
 
-    if (!matchPattern || value === '') {
+    if (!MESSAGE_PATTERN || value === '') {
       onChange(e)
       return
     }
 
-    const pattern = new RegExp(matchPattern)
+    const pattern = new RegExp(MESSAGE_PATTERN)
     if (pattern.test(value)) onChange(e)
   }
 

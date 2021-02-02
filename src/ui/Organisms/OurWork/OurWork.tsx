@@ -105,12 +105,11 @@ const OurWork = ({
             {ourWorkGallery.map((cardIcon: OurWorkGalleryDetail, index) => {
               const { small, title, description, id } = cardIcon
               return (
-                <SlideWrapper
-                  key={id}
-                  className="SlideWrapper"
-                  onClick={() => openModalHandler(index)}
-                >
-                  <Card thumbnailIamge={small}>
+                <SlideWrapper key={id} className="SlideWrapper">
+                  <Card
+                    thumbnailIamge={small}
+                    onImageClickHanlder={() => openModalHandler(index)}
+                  >
                     <CardInnerContent>
                       <H3>{title}</H3>
                       <P>{description}</P>

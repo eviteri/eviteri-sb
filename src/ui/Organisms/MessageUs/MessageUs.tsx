@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useInViewPort } from '../../../customHooks'
-import { FormElements } from '../../../typings/contactForm'
+import { FormElements } from '../../../typings/form'
 import Form from '../../../ui/Molecules/Form'
 import ClientLogos from '../../../ui/Molecules/ClientLogos'
 import { Logos } from '../../../typings/clientLogo'

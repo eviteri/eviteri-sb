@@ -4,7 +4,7 @@ import query from '../../../const/mediaQueries'
 import { Meta } from '@storybook/react/types-6-0'
 import mockClientLogos from '../../../const/mockData/clientLogos'
 import contactFormFields from '../../../const/mockData/contactFormFields'
-import { FormElements } from '../../../typings/contactForm'
+import { FormElements } from '../../../typings/form'
 import MessageUs from './MessageUs'
 
 const TestWrapper = styled.div`

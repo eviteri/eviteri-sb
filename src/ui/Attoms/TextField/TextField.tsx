@@ -5,15 +5,22 @@ import React, {
   useState
 } from 'react'
 import { InputWrapper, Label, InputElement } from './StyledComponents'
+import {
+  InputTextBehavior,
+  NAME_PATTERN,
+  EMAIL_PATTERN,
+  PHONE_PATTERN,
+  MESSAGE_PATTERN
+} from '../../../typings/form'
 
 export interface InputProps {
   label: string
   className?: string
   name?: string
   id?: string
+  behavior: InputTextBehavior
   value?: string | number
   placeholder?: string
-  matchPattern?: RegExp
   isDisabled?: boolean
   maxLength?: number
   required?: boolean
@@ -26,14 +33,28 @@ export interface InputProps {
   onFocus?: (e: SyntheticEvent<HTMLInputElement>) => void
 }
 
+const getInputPattern = (behavior: InputTextBehavior): RegExp => {
+  if (behavior === 'phone') {
+    return PHONE_PATTERN
+  }
+  if (behavior === 'email') {
+    return EMAIL_PATTERN
+  }
+  if (behavior === 'textarea') {
+    return MESSAGE_PATTERN
+  }
+
+  return NAME_PATTERN
+}
+
 const Input = ({
   label,
   className,
   name = 'ev-text-field',
   id,
+  behavior = 'name',
   value = '',
   placeholder = '',
-  matchPattern,
   isDisabled = false,
   maxLength,
   required = false,
@@ -48,13 +69,14 @@ const Input = ({
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
+    const inputPatter = getInputPattern(behavior)
 
-    if (!matchPattern || value === '') {
+    if (!inputPatter || value === '') {
       onChange(e)
       return
     }
 
-    const pattern = new RegExp(matchPattern)
+    const pattern = new RegExp(inputPatter)
     if (pattern.test(value)) onChange(e)
   }
 
@@ -96,7 +118,7 @@ const Input = ({
         hasFocus={hasFocus}
         hasError={error !== ''}
         data-test="Input"
-        data-type={label.toLocaleLowerCase()}
+        data-behavior={behavior.toLocaleLowerCase()}
         className={className}
         aria-invalid={!!error}
         name={name}
