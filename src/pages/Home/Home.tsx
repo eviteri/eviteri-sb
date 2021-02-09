@@ -28,6 +28,7 @@ const Home = () => {
     <PageWrapper>
       {/* TODO: Need to pass user phone number, email and work with us link */}
       <Header
+        data-test="ev-header"
         themeMode="dark"
         siteLogoUrl="#home"
         navLinks={mockNavigationLInks}
@@ -35,6 +36,7 @@ const Home = () => {
       />
       <HeroSection>
         <Hero
+          data-test="ev-hero"
           themeMode="dark"
           shouldAnimate={true}
           tagLine="web development services"
@@ -48,6 +50,7 @@ const Home = () => {
 
       <main>
         <MessageUs
+          data-test="ev-message_us"
           shouldAnimate={true}
           clientLogos={mockClientLogos}
           formTitle="Work with us."
@@ -56,12 +59,14 @@ const Home = () => {
           onSubmitFormHandler={onSubmitFormHandler}
         />
         <OurServices
+          data-test="ev-our_services"
           shouldAnimate={false}
           title="Our Services"
           description="You deserve better than a one-size-fits-all option. We focus on one thing — building dyanmic content-driven technology that gives strength to your brand's mission and helps you deliver on your goals. "
           cardIcons={mockCardIcons}
         />
         <OurWork
+          data-test="ev-our_work"
           shouldAnimate={false}
           title="Our Work"
           description="A collection of our most recent and most favorite projects that have brought maximal value and impact to our clients."
@@ -69,6 +74,7 @@ const Home = () => {
         />
         <WhyChooseUs shouldAnimate={false} data={mockWhyChooseUs} />
         <Footer
+          data-test="ev-footer"
           siteLogoUrl="#home"
           description="Headquartered in Charlotte, NC, our small but nimble team services start-ups, small businesses, and enterprises throughout the US and Canada. We focus on high-quality and efficient web, mobile, and WordPress development. Hablamos Espanol!"
           formTitle="Contact us."
