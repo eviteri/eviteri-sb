@@ -118,15 +118,20 @@ const Modal = ({
   return (
     <ModalWrapper>
       <ModalContentWrapper
+        data-test="modal-content-wrapper"
         triggerCloseAnimation={shouldClose}
         onAnimationEnd={() => setHasAnimationEnded(true)}
       >
         <ModalInnerContentWrapper
+          data-test="modal-inner-content-wrapper"
           hasModalContentWrapperFineshedAnimating={hasAnimationEnded}
         >
           <ModalHeaderWrapper>
-            <ModalTitle>{title}</ModalTitle>
-            <ModalCloseButton onClick={onCloseButtonHandler}>
+            <ModalTitle data-test="modal-title">{title}</ModalTitle>
+            <ModalCloseButton
+              data-test="modal-close-button"
+              onClick={onCloseButtonHandler}
+            >
               <FontAwesomeIcon icon={faTimes} />
             </ModalCloseButton>
           </ModalHeaderWrapper>
@@ -135,7 +140,11 @@ const Modal = ({
               {gallery.map((cardIcon: OurWorkGalleryDetail) => {
                 const { large, small, id } = cardIcon
                 return (
-                  <SlideWrapper key={id} className="SlideWrapper">
+                  <SlideWrapper
+                    key={id}
+                    className="SlideWrapper"
+                    data-test="modal-slide-wrapper"
+                  >
                     <Slide
                       backgroundImage={large}
                       mobileBackgroundImage={small}
@@ -146,14 +155,20 @@ const Modal = ({
             </Slider>
           </ModalBoddyWrapper>
           <ModalFooterWrapper>
-            <ModalCounter>{`${currentIndex + 1} / ${
+            <ModalCounter data-test="modal-counter">{`${currentIndex + 1} / ${
               gallery.length
             }`}</ModalCounter>
             <ModalNavigationWrapper>
-              <ModalArrowButton onClick={onBackButtonHandler}>
+              <ModalArrowButton
+                data-test="modal-back-button"
+                onClick={onBackButtonHandler}
+              >
                 <FontAwesomeIcon icon={faArrowLeft} />
               </ModalArrowButton>
-              <ModalArrowButton onClick={onNextButtonHandler}>
+              <ModalArrowButton
+                data-test="modal-next-button"
+                onClick={onNextButtonHandler}
+              >
                 <FontAwesomeIcon icon={faArrowRight} />
               </ModalArrowButton>
             </ModalNavigationWrapper>

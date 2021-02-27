@@ -11,7 +11,7 @@ export interface CardProps {
   iconImage?: string
   thumbnailIamge?: string
   withBoxShadow?: boolean
-  children: ReactNode
+  children?: ReactNode
   onImageClickHanlder?: () => void
 }
 
@@ -23,17 +23,22 @@ const Card = ({
   onImageClickHanlder
 }: CardProps) => {
   return (
-    <CardWrapper className="card" withBoxShadow={withBoxShadow}>
+    <CardWrapper
+      data-test="ev-card"
+      className="card"
+      withBoxShadow={withBoxShadow}
+    >
       {(thumbnailIamge || iconImage) && (
         <CardHeader>
           {thumbnailIamge && !iconImage && (
             <CardThumbnailWrapper
+              data-test="card-thumbnail"
               backgroundImage={thumbnailIamge}
               onClick={onImageClickHanlder}
             />
           )}
           {iconImage && !thumbnailIamge && (
-            <CardIconWrapper>
+            <CardIconWrapper data-test="card-icon">
               <img src={iconImage} alt="icon" height="24px" />
             </CardIconWrapper>
           )}

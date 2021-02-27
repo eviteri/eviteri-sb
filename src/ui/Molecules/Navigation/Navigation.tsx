@@ -17,6 +17,7 @@ const Navigation = ({
 }: NavigationProps) => {
   return (
     <NavigationLinksList
+      data-test="navigation-list"
       themeMode={themeMode}
       backgroundColor={backgroundColor}
       linksColor={linksColor}

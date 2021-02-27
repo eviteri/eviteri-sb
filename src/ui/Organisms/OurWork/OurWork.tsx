@@ -85,6 +85,7 @@ const OurWork = ({
     <>
       {showModal && (
         <Modal
+          data-test="ev-modal"
           title="Gallery"
           gallery={ourWorkGallery}
           currentImageIndex={currentImageIndex}
@@ -107,6 +108,7 @@ const OurWork = ({
               return (
                 <SlideWrapper key={id} className="SlideWrapper">
                   <Card
+                    data-test="ev-card"
                     thumbnailIamge={small}
                     onImageClickHanlder={() => openModalHandler(index)}
                   >

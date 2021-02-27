@@ -16,7 +16,7 @@ const SocialMediaLinksWrapper = styled.div`
   }
 `
 
-interface SocialMediaLinksProps {
+export interface SocialMediaLinksProps {
   socialMediaLinks: SocialMediaArray
 }
 
@@ -24,7 +24,12 @@ const SocialMediaLinks = ({ socialMediaLinks }: SocialMediaLinksProps) => {
   return (
     <SocialMediaLinksWrapper>
       {socialMediaLinks.map((details: SocialMediaDetail) => (
-        <Link key={details.label} href={details.url} target="_blank">
+        <Link
+          data-test="ev-link"
+          key={details.label}
+          href={details.url}
+          target="_blank"
+        >
           <img src={details.image} alt={details.label} width="24" height="24" />
         </Link>
       ))}

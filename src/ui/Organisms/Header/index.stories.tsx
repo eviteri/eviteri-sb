@@ -25,6 +25,10 @@ export const Light = () => {
   )
 }
 
+export const WithOuthMenu = () => {
+  return <Header siteLogoUrl="#home" />
+}
+
 export default {
   title: 'Organisms/Header',
   component: Header,

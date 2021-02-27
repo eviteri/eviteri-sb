@@ -49,18 +49,21 @@ const Textarea = ({
 }: TextareaProps) => {
   const [hasFocus, setHasFocus] = useState(false)
   const [hasBeenAnimated, setHasBeenAnimated] = useState(false)
+  // const [shouldAnimateLabel, setShouldAnimateLabel] = useState(false)
   const [wordCounter, setWordCounter] = useState(maxLength)
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value
 
-    if (!MESSAGE_PATTERN || value === '') {
+    if (value === '') {
       onChange(e)
       return
     }
 
     const pattern = new RegExp(MESSAGE_PATTERN)
-    if (pattern.test(value)) onChange(e)
+    if (pattern.test(value)) {
+      onChange(e)
+    }
   }
 
   const handleOnBlur = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -79,7 +82,9 @@ const Textarea = ({
 
   const handleOnInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value
-    if (maxLength) setWordCounter(maxLength - value.length)
+    if (maxLength) {
+      setWordCounter(maxLength - value.length)
+    }
   }
 
   const shouldAnimateLabel = value !== '' || hasFocus
@@ -93,6 +98,7 @@ const Textarea = ({
   return (
     <TextAreaWrapper>
       <LabelWrapper
+        data-test="textarea-label"
         htmlFor={id}
         shouldAnimateLabel={shouldAnimateLabel}
         hasBeenAnimated={hasBeenAnimated}
@@ -100,8 +106,11 @@ const Textarea = ({
       >
         {label} {required && <span>*</span>}
       </LabelWrapper>
-      <CounterWrapper>{wordCounter} characters left</CounterWrapper>
+      <CounterWrapper data-test="word-counter-wrapper">
+        {wordCounter} characters left
+      </CounterWrapper>
       <TextAreaField
+        data-test="text-area-field"
         id={id}
         name={name}
         hasError={error !== ''}

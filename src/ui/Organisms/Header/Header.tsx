@@ -20,8 +20,8 @@ import Button from '../../Attoms/Button'
 import Link from '../../Attoms/Link'
 import SocialMediaLinks from '../../Molecules/SocialMediaLinks'
 
-interface HeaderProps {
-  navLinks: NavigationLinks
+export interface HeaderProps {
+  navLinks?: NavigationLinks
   siteLogoUrl: string
   socialMediaLinks?: SocialMediaArray
   themeMode?: 'dark' | 'light'
@@ -60,6 +60,7 @@ const Header = ({
           </HeaderLogoWrapper>
           <HamburgerWrapper>
             <Button
+              data-test="hamburger-button"
               themeMode={themeMode}
               buttonType="hamburger"
               isMenuOpen={isMenuOpen}
@@ -67,33 +68,35 @@ const Header = ({
             />
           </HamburgerWrapper>
         </HeaderLeftWrapper>
-        <HeaderRightWrapper isMenuOpen={isMenuOpen}>
-          <Navigation navigationLinks={navLinks} themeMode={themeMode} />
-          <WorkWithUsButtonWrapper>
-            <Link
-              linkLook="button"
-              linkType="primary"
-              isInline={false}
-              href="#workwithus"
-            >
-              Work with us
-            </Link>
-          </WorkWithUsButtonWrapper>
-          <FooterNavigationWrapper>
-            {socialMediaLinks && socialMediaLinks.length > 0 && (
-              <SocialMediaLinks socialMediaLinks={socialMediaLinks} />
-            )}
+        {navLinks && (
+          <HeaderRightWrapper isMenuOpen={isMenuOpen}>
+            <Navigation navigationLinks={navLinks} themeMode={themeMode} />
+            <WorkWithUsButtonWrapper>
+              <Link
+                linkLook="button"
+                linkType="primary"
+                isInline={false}
+                href="#workwithus"
+              >
+                Work with us
+              </Link>
+            </WorkWithUsButtonWrapper>
+            <FooterNavigationWrapper>
+              {socialMediaLinks && socialMediaLinks.length > 0 && (
+                <SocialMediaLinks socialMediaLinks={socialMediaLinks} />
+              )}
 
-            <NavigationContactWrapper>
-              <Link linkLook="button" linkType="secondary" href="#call">
-                CALL
-              </Link>
-              <Link linkLook="button" linkType="secondary" href="#email">
-                EMAIL
-              </Link>
-            </NavigationContactWrapper>
-          </FooterNavigationWrapper>
-        </HeaderRightWrapper>
+              <NavigationContactWrapper>
+                <Link linkLook="button" linkType="secondary" href="#call">
+                  CALL
+                </Link>
+                <Link linkLook="button" linkType="secondary" href="#email">
+                  EMAIL
+                </Link>
+              </NavigationContactWrapper>
+            </FooterNavigationWrapper>
+          </HeaderRightWrapper>
+        )}
       </NavigationWrapper>
     </HeaderWrapper>
   )

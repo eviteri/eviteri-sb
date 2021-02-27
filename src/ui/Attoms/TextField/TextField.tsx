@@ -77,7 +77,9 @@ const Input = ({
     }
 
     const pattern = new RegExp(inputPatter)
-    if (pattern.test(value)) onChange(e)
+    if (pattern.test(value)) {
+      onChange(e)
+    }
   }
 
   const handleOnBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,6 +107,7 @@ const Input = ({
   return (
     <InputWrapper>
       <Label
+        data-test="textfield-label"
         htmlFor={id}
         shouldAnimateLabel={shouldAnimateLabel}
         hasBeenAnimated={hasBeenAnimated}

@@ -19,6 +19,7 @@ const ClientLogos = ({ clientLogos }: ClientLogosProps) => {
         const { clientName, imagePath } = logo
         return (
           <ClientLogo
+            data-test="client-logo"
             key={clientName}
             clientName={clientName}
             imagePath={imagePath}

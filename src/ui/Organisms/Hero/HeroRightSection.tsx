@@ -28,6 +28,7 @@ const HeroRightSection = ({
   if (imageUrl !== '') {
     return (
       <HeroImageWrapper
+        data-test="ev-hero-image"
         ref={heroRightWrapperRef}
         shouldAnimate={shouldAnimate}
         shouldTriggerAnimation={shouldTriggerAnimation}
@@ -39,6 +40,7 @@ const HeroRightSection = ({
 
   return (
     <HeroVideoWrapper
+      data-test="ev-hero-video"
       ref={heroRightWrapperRef}
       shouldAnimate={shouldAnimate}
       shouldTriggerAnimation={shouldTriggerAnimation}

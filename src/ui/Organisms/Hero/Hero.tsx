@@ -5,7 +5,7 @@ import WaveBottom from '../../Shapes/WaveBottom'
 import CurveBottom from '../../Shapes/CurveBottom'
 import { HeroWrapper } from './StyledComponents'
 
-interface HeroProps {
+export interface HeroProps {
   themeMode?: 'dark' | 'light'
   shouldAnimate?: boolean
   tagLine?: string

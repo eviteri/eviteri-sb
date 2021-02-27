@@ -51,14 +51,16 @@ const Form = ({
       const element = e.currentTarget
       const { value, id } = element
 
-      const behavior = element.getAttribute(
-        'data-behavior'
-      ) as InputTextBehavior
-      let error = ''
+      const foundElement = formElements.find(
+        (obj: FormElement) => obj.id === id
+      )
 
-      if (typeof behavior === 'string') {
-        error = validateInput(behavior, value)
+      let inputBehavior = ''
+      if (foundElement && foundElement.hasOwnProperty('behavior')) {
+        inputBehavior = foundElement.behavior as string
       }
+
+      const error = validateInput(inputBehavior as InputTextBehavior, value)
 
       const updatedFormValues = updateForm(formElements, id, value, error)
       setFormElements(updatedFormValues)
@@ -102,18 +104,6 @@ const Form = ({
         {formElements.map((input: FormElement) => {
           const { id, type, behavior } = input
 
-          if (type === 'text') {
-            return (
-              <TextField
-                {...input}
-                key={id}
-                behavior={behavior as InputTextBehavior}
-                onChange={onChangeHandler}
-                onBlur={onBlurHandler}
-              />
-            )
-          }
-
           if (type === 'textarea') {
             return (
               <TextArea
@@ -125,9 +115,18 @@ const Form = ({
             )
           }
 
-          return ''
+          return (
+            <TextField
+              {...input}
+              key={id}
+              behavior={behavior as InputTextBehavior}
+              onChange={onChangeHandler}
+              onBlur={onBlurHandler}
+            />
+          )
         })}
         <SubmitButton
+          data-test="submit-button"
           type="button"
           buttonType="secondary"
           onClick={onSubmitHandler}

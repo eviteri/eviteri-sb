@@ -1,6 +1,7 @@
-import { configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import React, { ReactElement } from 'react'
+import { configure, shallow } from 'enzyme'
+// import Adapter from 'enzyme-adapter-react-16'
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
+import { ReactElement } from 'react'
 import { ThemeProvider } from 'styled-components'
 import defaultTheme from './theme'
 import 'jest-styled-components'
@@ -19,27 +20,9 @@ window.matchMedia =
 
 configure({ adapter: new Adapter() })
 
-interface TestWrapperProps {
-  children: ReactElement
+export const shallowWithTheme = (
+  children: ReactElement,
+  theme: any = defaultTheme
+) => {
+  return shallow(<ThemeProvider theme={theme}>{children}</ThemeProvider>)
 }
-
-/*
- * wraps styled components theme provider and passes props from wrapper to children
- * so enzyme's setProps() method works as expectedk
- */
-export const TestWrapper = ({
-  children,
-  ...rest
-}: TestWrapperProps): ReactElement => {
-  const child = React.cloneElement(children, {
-    ...rest
-  })
-  return <ThemeProvider theme={defaultTheme}>{child}</ThemeProvider>
-}
-
-export default TestWrapper
-
-// export const shallowWithTheme = (children: ReactElement) => {
-//   console.log('I am here')
-//   return shallow(<ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>)
-// }
