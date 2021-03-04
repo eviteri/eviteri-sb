@@ -109,7 +109,7 @@ describe('Form', () => {
     expect(mockSubmitFunction).not.toHaveBeenCalled()
   })
 
-  it('Should submit the form ', () => {
+  it('Should submit the form', () => {
     const filledContactFormFields: FormElements = [
       { ...textField, value: 'some value' },
       { ...textArea, value: 'some message' }
