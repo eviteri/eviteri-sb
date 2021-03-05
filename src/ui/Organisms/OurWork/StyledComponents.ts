@@ -19,7 +19,7 @@ export const OurWorkWrapper = styled.div<StyledProps>`
       animation: ${fadeInLeft} 0.6s ease-in forwards;
     `}
   @media ${query.lessThanRegular} {
-    padding-top: unset;
+    padding-top: 75px;
   }
 `
 

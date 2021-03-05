@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, SyntheticEvent } from 'react'
 import { useLockScreen, useWindowSize } from '../../../customHooks'
 import { NavigationLinks } from '../../../typings/navigation'
 import { SocialMediaArray } from '../../../typings/socialMedia'
@@ -34,16 +34,29 @@ const Header = ({
   themeMode = 'dark'
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [inlineLinkId, setInlineLinkId] = useState('')
 
   useLockScreen(isMenuOpen)
 
   const { width: windowWidth } = useWindowSize()
+
+  const handleInlineLink = (e: SyntheticEvent, id: string) => {
+    e.preventDefault()
+    setIsMenuOpen(false)
+    setInlineLinkId(id)
+  }
 
   useEffect(() => {
     if (isMenuOpen && windowWidth >= 1024) {
       setIsMenuOpen(false)
     }
   }, [windowWidth, isMenuOpen])
+
+  useEffect(() => {
+    if (!isMenuOpen && inlineLinkId !== '') {
+      window.location.href = inlineLinkId
+    }
+  }, [isMenuOpen, inlineLinkId])
 
   return (
     <HeaderWrapper themeMode={themeMode}>
@@ -70,7 +83,11 @@ const Header = ({
         </HeaderLeftWrapper>
         {navLinks && (
           <HeaderRightWrapper isMenuOpen={isMenuOpen}>
-            <Navigation navigationLinks={navLinks} themeMode={themeMode} />
+            <Navigation
+              navigationLinks={navLinks}
+              themeMode={themeMode}
+              handleInlineLink={handleInlineLink}
+            />
             <WorkWithUsButtonWrapper>
               <Link
                 linkLook="button"

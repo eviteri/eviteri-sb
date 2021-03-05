@@ -56,6 +56,9 @@ const GlobalStyle = createGlobalStyle`
     .js-loading *:after {
         animation-play-state: paused !important;
     }
+    html {
+        scroll-behavior: smooth;
+    }
     body{
         padding: 0;
         margin: 0;
@@ -73,6 +76,10 @@ const GlobalStyle = createGlobalStyle`
     }
     .sb-show-main.sb-main-padded {
         padding: 0 !important;
+    }
+    .hidden{
+        height: 0;
+        overflow: hidden;
     }
 `
 

@@ -14,7 +14,7 @@ export const WhyChooseUsWrapper = styled.div<SytledProps>`
   justify-content: space-between;
   align-items: center;
   max-width: 74%;
-  margin: 60px auto 348px auto;
+  margin: 110px auto 348px auto;
   opacity: ${({ shouldAnimate }) => (shouldAnimate ? 0 : 1)};
   ${({ shouldTriggerAnimation }) =>
     shouldTriggerAnimation &&

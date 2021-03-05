@@ -37,7 +37,7 @@ export const OurServicesWrapper = styled.div`
   padding-bottom: 111px;
   margin: 0 auto;
   @media ${query.lessThanRegular} {
-    padding-top: unset;
+    padding-top: 75px;
   }
 `
 

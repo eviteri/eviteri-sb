@@ -58,21 +58,27 @@ const Home = () => {
           submitButtonLabel="SUBMIT"
           onSubmitFormHandler={onSubmitFormHandler}
         />
+
+        <div id="services" className="hidden"></div>
         <OurServices
           data-test="ev-our_services"
-          shouldAnimate={false}
+          shouldAnimate={true}
           title="Our Services"
           description="You deserve better than a one-size-fits-all option. We focus on one thing — building dyanmic content-driven technology that gives strength to your brand's mission and helps you deliver on your goals. "
           cardIcons={mockCardIcons}
         />
+
+        <div id="work" className="hidden"></div>
         <OurWork
           data-test="ev-our_work"
-          shouldAnimate={false}
+          shouldAnimate={true}
           title="Our Work"
           description="A collection of our most recent and most favorite projects that have brought maximal value and impact to our clients."
           ourWorkGallery={mockOurWorkGallery}
         />
-        <WhyChooseUs shouldAnimate={false} data={mockWhyChooseUs} />
+
+        <div id="whyus" className="hidden"></div>
+        <WhyChooseUs shouldAnimate={true} data={mockWhyChooseUs} />
         <Footer
           data-test="ev-footer"
           siteLogoUrl="#home"
