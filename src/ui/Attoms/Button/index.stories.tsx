@@ -9,7 +9,7 @@ export const PrimaryButton = () => {
       buttonType="primary"
       onClick={() => console.log('button clicked')}
     >
-      Primary Button
+      Primary
     </Button>
   )
 }
@@ -21,7 +21,7 @@ export const SecondaryButton = () => {
       buttonType="secondary"
       onClick={() => console.log('button clicked')}
     >
-      Secondary Button
+      Secondary
     </Button>
   )
 }
