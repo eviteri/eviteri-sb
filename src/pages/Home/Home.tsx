@@ -18,6 +18,7 @@ import OurWork from '../../ui/Organisms/OurWork'
 import WhyChooseUs from '../../ui/Organisms/WhyChooseUs'
 import Footer from '../../ui/Organisms/Footer'
 import { PageWrapper, HeroSection, WorkWithUsSection } from './StyledComponents'
+import socialMediaLinks from '../../const/mockData/mockSocialMediaLinks'
 
 const Home = () => {
   const onSubmitFormHandler = useCallback((formElements: FormElements) => {
@@ -91,9 +92,7 @@ const Home = () => {
           submitButtonLabel="SUBMIT"
           contactFormFields={contactFormFooterFields}
           onSubmitFormHandler={onSubmitFormHandler}
-          linkedInUrl="#"
-          instagramUrl="#"
-          githubUrl="#"
+          socialMediaLinks={socialMediaLinks}
         />
       </main>
     </PageWrapper>

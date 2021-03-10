@@ -4,6 +4,7 @@ import Footer from './Footer'
 import contactFormFooterFields from '../../../const/mockData/contactFormFooter'
 import TestWrapper from '../../../helpers/testSetup'
 import 'jest-styled-components'
+import socialMediaLinks from '../../../const/mockData/mockSocialMediaLinks'
 
 const mockOnSubmitFormHandler = jest.fn()
 
@@ -19,9 +20,7 @@ describe('Footer', () => {
           submitButtonLabel="SUBMIT"
           contactFormFields={contactFormFooterFields}
           onSubmitFormHandler={mockOnSubmitFormHandler}
-          linkedInUrl="#"
-          instagramUrl="#"
-          githubUrl="#"
+          socialMediaLinks={socialMediaLinks}
         />
       </TestWrapper>
     )

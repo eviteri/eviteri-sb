@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Meta } from '@storybook/react/types-6-0'
 import Footer from './Footer'
 import contactFormFooterFields from '../../../const/mockData/contactFormFooter'
+import socialMediaLinks from '../../../const/mockData/mockSocialMediaLinks'
 
 const TestWrapper = styled.div`
   padding-top: 105px;
@@ -19,9 +20,7 @@ export const Default = () => {
         submitButtonLabel="SUBMIT"
         contactFormFields={contactFormFooterFields}
         onSubmitFormHandler={() => {}}
-        linkedInUrl="#"
-        instagramUrl="#"
-        githubUrl="#"
+        socialMediaLinks={socialMediaLinks}
       />
     </TestWrapper>
   )

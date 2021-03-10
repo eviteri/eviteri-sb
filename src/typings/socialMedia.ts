@@ -1,7 +1,8 @@
 export interface SocialMediaDetail {
-  label?: string
-  image?: string
-  url?: string
+  label: string
+  image: string
+  imageAlt?: string
+  url: string
 }
 
 export type SocialMediaArray = Array<SocialMediaDetail>

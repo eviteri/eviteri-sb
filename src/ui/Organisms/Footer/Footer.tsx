@@ -16,10 +16,11 @@ import {
 } from './StyledComponents'
 import WaveTop from '../../Shapes/WaveTop'
 import Form from '../../../ui/Molecules/Form'
-import LinkedInLogo from '../../../assets/socialMedia/linked-in-white.png'
-import InstagramLogo from '../../../assets/socialMedia/instagram-white.png'
-import GitHubLogo from '../../../assets/socialMedia/github-white.png'
 import { FormElements } from '../../../typings/form'
+import {
+  SocialMediaArray,
+  SocialMediaDetail
+} from '../../../typings/socialMedia'
 
 export interface FooterProps {
   siteLogoUrl: string
@@ -28,9 +29,7 @@ export interface FooterProps {
   contactFormFields: FormElements
   submitButtonLabel: string
   onSubmitFormHandler: (formElements: FormElements) => void
-  linkedInUrl?: string
-  instagramUrl?: string
-  githubUrl?: string
+  socialMediaLinks?: SocialMediaArray
   theme?: any
 }
 
@@ -40,10 +39,8 @@ const Footer = ({
   formTitle,
   contactFormFields,
   submitButtonLabel,
-  linkedInUrl,
-  instagramUrl,
-  githubUrl,
-  onSubmitFormHandler
+  onSubmitFormHandler,
+  socialMediaLinks
 }: FooterProps) => {
   return (
     <FooterWrapper>
@@ -58,21 +55,18 @@ const Footer = ({
             </FooterLogoWrapper>
             <FooterDescription>{description}</FooterDescription>
             <SocialMediaLinksWrapper>
-              {linkedInUrl && linkedInUrl !== '' && (
-                <SocialLink href={linkedInUrl} target="__blank">
-                  <SocialMediaIcon src={LinkedInLogo} alt="LinkedIn Logo" />
-                </SocialLink>
-              )}
-              {instagramUrl && instagramUrl !== '' && (
-                <SocialLink href={instagramUrl} target="__blank">
-                  <SocialMediaIcon src={InstagramLogo} alt="Instagram Logo" />
-                </SocialLink>
-              )}
-              {githubUrl && githubUrl !== '' && (
-                <SocialLink href={githubUrl} target="__blank">
-                  <SocialMediaIcon src={GitHubLogo} alt="GitHub Logo" />
-                </SocialLink>
-              )}
+              {socialMediaLinks &&
+                socialMediaLinks.map(
+                  (link: SocialMediaDetail, index: number) => {
+                    const { label, image, imageAlt, url } = link
+                    const logoImage = imageAlt ? imageAlt : image
+                    return (
+                      <SocialLink key={index} href={url} target="__blank">
+                        <SocialMediaIcon src={logoImage} alt={label} />
+                      </SocialLink>
+                    )
+                  }
+                )}
             </SocialMediaLinksWrapper>
           </FooterLeftWrapper>
           <FooterRightWrapper>
