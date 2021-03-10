@@ -1,13 +1,15 @@
 import React, { useState, useCallback, useRef } from 'react'
 import { useInViewPort } from '../../../customHooks'
 import { useLockScreen } from '../../../customHooks'
-import { H2, H3, P } from '../../typography'
+import { H2, P } from '../../typography'
 import {
   OurWorkWrapper,
   OurWorkHeaderWrapper,
   OurWorkFooterWrapper,
   SlideWrapper,
-  CardInnerContent
+  CardInnerContent,
+  CardInnerContentLink,
+  CardTitle
 } from './StyledComponents'
 import Card from '../../Molecules/Card'
 import Slider from 'react-slick'
@@ -104,7 +106,15 @@ const OurWork = ({
         <OurWorkFooterWrapper>
           <Slider {...settings}>
             {ourWorkGallery.map((cardIcon: OurWorkGalleryDetail, index) => {
-              const { small, title, description, id } = cardIcon
+              const { small, title, description, id, url } = cardIcon
+
+              const CardContent = (
+                <>
+                  <CardTitle>{title}</CardTitle>
+                  <P>{description}</P>
+                </>
+              )
+
               return (
                 <SlideWrapper key={id} className="SlideWrapper">
                   <Card
@@ -112,10 +122,13 @@ const OurWork = ({
                     thumbnailIamge={small}
                     onImageClickHanlder={() => openModalHandler(index)}
                   >
-                    <CardInnerContent>
-                      <H3>{title}</H3>
-                      <P>{description}</P>
-                    </CardInnerContent>
+                    {url ? (
+                      <CardInnerContentLink href={url} target="_blank">
+                        {CardContent}
+                      </CardInnerContentLink>
+                    ) : (
+                      <CardInnerContent>{CardContent}</CardInnerContent>
+                    )}
                   </Card>
                 </SlideWrapper>
               )

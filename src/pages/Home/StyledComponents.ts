@@ -12,3 +12,11 @@ export const HeroSection = styled.section`
     margin-top: 75px;
   }
 `
+
+export const WorkWithUsSection = styled.div`
+  @media ${query.greaterThanRegular} {
+    position: absolute;
+    right: 0;
+    top: 70%;
+  }
+`

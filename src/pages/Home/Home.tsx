@@ -17,7 +17,7 @@ import OurServices from '../../ui/Organisms/OurServices'
 import OurWork from '../../ui/Organisms/OurWork'
 import WhyChooseUs from '../../ui/Organisms/WhyChooseUs'
 import Footer from '../../ui/Organisms/Footer'
-import { PageWrapper, HeroSection } from './StyledComponents'
+import { PageWrapper, HeroSection, WorkWithUsSection } from './StyledComponents'
 
 const Home = () => {
   const onSubmitFormHandler = useCallback((formElements: FormElements) => {
@@ -49,6 +49,10 @@ const Home = () => {
       </HeroSection>
 
       <main>
+        <WorkWithUsSection
+          id="workwithus"
+          className="hidden"
+        ></WorkWithUsSection>
         <MessageUs
           data-test="ev-message_us"
           shouldAnimate={true}
@@ -64,11 +68,11 @@ const Home = () => {
           data-test="ev-our_services"
           shouldAnimate={true}
           title="Our Services"
-          description="You deserve better than a one-size-fits-all option. We focus on one thing — building dyanmic content-driven technology that gives strength to your brand's mission and helps you deliver on your goals. "
+          description="You deserve better than a one-size-fits-all option. We focus on one thing — building dyanmic content-driven technology that gives strength to your brand's mission and helps you deliver on your goals."
           cardIcons={mockCardIcons}
         />
 
-        <div id="work" className="hidden"></div>
+        <div id="viewourwork" className="hidden"></div>
         <OurWork
           data-test="ev-our_work"
           shouldAnimate={true}

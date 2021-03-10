@@ -48,6 +48,10 @@ Niveau Grotesk Bold Small Caps
 font-family: niveau-grotesk-small-caps,sans-serif;
 font-weight: 700;
 font-style: normal;
+
+html {
+        scroll-behavior: smooth;
+    }
 */
 
 const GlobalStyle = createGlobalStyle`
@@ -55,9 +59,6 @@ const GlobalStyle = createGlobalStyle`
     .js-loading *:before, 
     .js-loading *:after {
         animation-play-state: paused !important;
-    }
-    html {
-        scroll-behavior: smooth;
     }
     body{
         padding: 0;

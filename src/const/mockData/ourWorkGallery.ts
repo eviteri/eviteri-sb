@@ -18,46 +18,51 @@ import { OurWorkGallery } from '../../typings/ourWorkGallery'
 
 const ourWorkGallery: OurWorkGallery = [
   {
-    id: 1,
-    title: 'Lorem ipsum dolor sit amet, consectetur.',
+    id: 4,
+    title: 'Bhumiphotography',
+    url: 'http://bhumiphotography.com/',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.',
+      'This is a Headless website. It uses React.JS in the front end and Wordpress backend to make API calls.',
+    small: bhumiphotographyThumbnail,
+    large: bhumiphotography,
+    medium: bhumiphotographyMobile
+  },
+  {
+    id: 1,
+    title: 'Captrust Advice',
+    url: 'https://www.captrustadvice.com/',
+    description:
+      'This site was built with WordPress. It uses PHP, MySql Data Base  and Gulp.js to manage front end dependencies suchs as: JavaScript and SCSS.',
     small: captrustThumbnail,
     large: captrust,
     medium: captrustMobile
   },
   {
     id: 2,
-    title: 'Lorem ipsum dolor sit amet, consectetur.',
+    title: 'Nascar Pintys',
+    url: 'https://www.nascar.ca/',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.',
+      'This site was built with a WordPress child theme. It uses PHP, CSS, HTML, JavaScript and MySql Data Base.',
     small: nascarThumbnail,
     large: nascar,
     medium: nascarMobile
   },
   {
     id: 3,
-    title: 'Lorem ipsum dolor sit amet, consectetur.',
+    title: 'Hiinga',
+    url: 'https://hiinga.org/',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.',
+      'This site was built with a custom WordPress theme.  It uses PHP, CSS, HTML, JavaScript and MySql Data Base.',
     small: hiingaThumbnail,
     large: hiinga,
     medium: hiingaMobile
   },
   {
-    id: 4,
-    title: 'Lorem ipsum dolor sit amet, consectetur.',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.',
-    small: bhumiphotographyThumbnail,
-    large: bhumiphotography,
-    medium: bhumiphotographyMobile
-  },
-  {
     id: 5,
-    title: 'Lorem ipsum dolor sit amet, consectetur.',
+    title: 'Arca',
+    url: 'https://arcaworld.com/',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.',
+      'This site was built with a custom WordPress theme.  It uses PHP, CSS, HTML, JavaScript and MySql Data Base.',
     small: arcaThumbnail,
     large: arca,
     medium: arcaMobile

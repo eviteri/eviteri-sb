@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import query from '../../../const/mediaQueries'
 import { fadeInLeft } from '../../../helpers/animations'
+import { H3 } from '../../typography'
 
 interface StyledProps {
   shouldAnimate: boolean
@@ -55,4 +56,13 @@ export const SlideWrapper = styled.div`
 
 export const CardInnerContent = styled.div`
   text-align: left;
+`
+
+export const CardInnerContentLink = styled.a`
+  text-decoration: none;
+`
+
+export const CardTitle = styled(H3)`
+  margin-top: 15px;
+  margin-bottom: 0px;
 `
