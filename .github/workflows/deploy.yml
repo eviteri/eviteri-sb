@@ -33,17 +33,5 @@ jobs:
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
         with:
-          source: './storybook-static/'
+          source: './storybook-static/.'
           target: '/home/vtserv6/storybook.eviteri.com'
-
-      - name: Moving storybook-static folder one level up
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PORT: ${{ secrets.PORT }}
-          KEY: ${{ secrets.SSHKEY }}
-          script: |
-            cd /home/vtserv6/storybook.eviteri.com
-            mv ./storybook-static/* .
-            rm -rf storybook-static/
