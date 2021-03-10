@@ -34,7 +34,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
-         with:
+        with:
           source: './storybook-static/'
           target: '/home/vtserv6/storybook.eviteri.com'
 
