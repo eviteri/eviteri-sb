@@ -27,13 +27,14 @@ const Home = () => {
 
   return (
     <PageWrapper>
-      {/* TODO: Need to pass user phone number, email and work with us link */}
       <Header
         data-test="ev-header"
         themeMode="dark"
-        siteLogoUrl="#home"
+        siteLogoUrl="."
         navLinks={mockNavigationLInks}
         socialMediaLinks={mockSocialMediaLinks}
+        phoneNumber="7042771325"
+        emailAddress="eviterif@gmail.com"
       />
       <HeroSection>
         <Hero
@@ -86,7 +87,7 @@ const Home = () => {
         <WhyChooseUs shouldAnimate={true} data={mockWhyChooseUs} />
         <Footer
           data-test="ev-footer"
-          siteLogoUrl="#home"
+          siteLogoUrl="."
           description="Headquartered in Charlotte, NC, our small but nimble team services start-ups, small businesses, and enterprises throughout the US and Canada. We focus on high-quality and efficient web, mobile, and WordPress development. Hablamos Espanol!"
           formTitle="Contact us."
           submitButtonLabel="SUBMIT"

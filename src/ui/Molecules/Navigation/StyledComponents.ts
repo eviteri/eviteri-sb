@@ -44,7 +44,7 @@ export const NavigationLinksList = styled.ul<NavigationLinksListProps>`
   @media ${query.lessThanLarge} {
     background-color: ${({ theme }) => theme.navigation.background};
     padding-top: 45px;
-    flex: 1;
+    min-height: 50vh;
     flex-direction: column;
     li {
       margin-right: 0;

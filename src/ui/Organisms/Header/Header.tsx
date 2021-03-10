@@ -25,13 +25,17 @@ export interface HeaderProps {
   siteLogoUrl: string
   socialMediaLinks?: SocialMediaArray
   themeMode?: 'dark' | 'light'
+  phoneNumber?: string
+  emailAddress?: string
 }
 
 const Header = ({
   navLinks,
   siteLogoUrl,
   socialMediaLinks,
-  themeMode = 'dark'
+  themeMode = 'dark',
+  phoneNumber,
+  emailAddress
 }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [inlineLinkId, setInlineLinkId] = useState('')
@@ -104,12 +108,25 @@ const Header = ({
               )}
 
               <NavigationContactWrapper>
-                <Link linkLook="button" linkType="secondary" href="#call">
-                  CALL
-                </Link>
-                <Link linkLook="button" linkType="secondary" href="#email">
-                  EMAIL
-                </Link>
+                {phoneNumber && (
+                  <Link
+                    linkLook="button"
+                    linkType="secondary"
+                    href={`tel:${phoneNumber}`}
+                  >
+                    CALL
+                  </Link>
+                )}
+
+                {emailAddress && (
+                  <Link
+                    linkLook="button"
+                    linkType="secondary"
+                    href={`mailto: ${emailAddress}?subject=I need a Quote`}
+                  >
+                    EMAIL
+                  </Link>
+                )}
               </NavigationContactWrapper>
             </FooterNavigationWrapper>
           </HeaderRightWrapper>

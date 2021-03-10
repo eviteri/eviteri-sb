@@ -65,4 +65,5 @@ export const CardInnerContentLink = styled.a`
 export const CardTitle = styled(H3)`
   margin-top: 15px;
   margin-bottom: 0px;
+  text-align: center;
 `
