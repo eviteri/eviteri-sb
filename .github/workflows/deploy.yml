@@ -25,6 +25,9 @@ jobs:
       - run: yarn test
       - run: yarn build-storybook
 
+      - name: Run Command
+        run: cd storybook-static
+
       - name: Copy repository contents via scp
         uses: appleboy/scp-action@master
         env:
@@ -33,5 +36,5 @@ jobs:
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
         with:
-          source: './storybook-static/.'
+          source: '.'
           target: '/home/vtserv6/storybook.eviteri.com'
