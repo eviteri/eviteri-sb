@@ -1,6 +1,6 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-name: CI CD
+name: Continuous Deployment
 
 on:
   push:
@@ -33,17 +33,5 @@ jobs:
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
         with:
-          source: './storybook-static/'
+          source: './storybook-static/.'
           target: '/home/vtserv6/storybook.eviteri.com'
-
-      - name: Moving storybook-static folder one level up
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PORT: ${{ secrets.PORT }}
-          KEY: ${{ secrets.SSHKEY }}
-          script: |
-            cd /home/vtserv6/storybook.eviteri.com
-            mv ./storybook-static/* .
-            rm -rf storybook-static/
