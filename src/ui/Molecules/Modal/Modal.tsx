@@ -137,18 +137,27 @@ const Modal = ({
           </ModalHeaderWrapper>
           <ModalBoddyWrapper>
             <Slider {...sliderSettings} ref={sliderRef}>
-              {gallery.map((cardIcon: OurWorkGalleryDetail) => {
-                const { large, small, id } = cardIcon
+              {gallery.map((image: OurWorkGalleryDetail) => {
+                const { large, small, id, url } = image
+                const ImageSlide = (
+                  <Slide
+                    backgroundImage={large}
+                    mobileBackgroundImage={small}
+                  />
+                )
                 return (
                   <SlideWrapper
                     key={id}
                     className="SlideWrapper"
                     data-test="modal-slide-wrapper"
                   >
-                    <Slide
-                      backgroundImage={large}
-                      mobileBackgroundImage={small}
-                    />
+                    {url ? (
+                      <a href={url} target="_blank" rel="noreferrer">
+                        {ImageSlide}
+                      </a>
+                    ) : (
+                      ImageSlide
+                    )}
                   </SlideWrapper>
                 )
               })}

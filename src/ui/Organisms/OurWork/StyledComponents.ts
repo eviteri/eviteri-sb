@@ -58,10 +58,6 @@ export const CardInnerContent = styled.div`
   text-align: left;
 `
 
-export const CardInnerContentLink = styled.a`
-  text-decoration: none;
-`
-
 export const CardTitle = styled(H3)`
   margin-top: 15px;
   margin-bottom: 0px;

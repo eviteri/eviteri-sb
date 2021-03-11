@@ -8,7 +8,6 @@ import {
   OurWorkFooterWrapper,
   SlideWrapper,
   CardInnerContent,
-  CardInnerContentLink,
   CardTitle
 } from './StyledComponents'
 import Card from '../../Molecules/Card'
@@ -106,14 +105,7 @@ const OurWork = ({
         <OurWorkFooterWrapper>
           <Slider {...settings}>
             {ourWorkGallery.map((cardIcon: OurWorkGalleryDetail, index) => {
-              const { small, title, description, id, url } = cardIcon
-
-              const CardContent = (
-                <>
-                  <CardTitle>{title}</CardTitle>
-                  <P>{description}</P>
-                </>
-              )
+              const { small, title, description, id } = cardIcon
 
               return (
                 <SlideWrapper key={id} className="SlideWrapper">
@@ -122,13 +114,10 @@ const OurWork = ({
                     thumbnailIamge={small}
                     onImageClickHanlder={() => openModalHandler(index)}
                   >
-                    {url ? (
-                      <CardInnerContentLink href={url} target="_blank">
-                        {CardContent}
-                      </CardInnerContentLink>
-                    ) : (
-                      <CardInnerContent>{CardContent}</CardInnerContent>
-                    )}
+                    <CardInnerContent>
+                      <CardTitle>{title}</CardTitle>
+                      <P>{description}</P>
+                    </CardInnerContent>
                   </Card>
                 </SlideWrapper>
               )

@@ -33,7 +33,7 @@ const Home = () => {
         siteLogoUrl="."
         navLinks={mockNavigationLInks}
         socialMediaLinks={mockSocialMediaLinks}
-        phoneNumber="7042771325"
+        phoneNumber="7043745009"
         emailAddress="eviterif@gmail.com"
       />
       <HeroSection>

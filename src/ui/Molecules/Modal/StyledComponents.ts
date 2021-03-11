@@ -76,6 +76,7 @@ export const ModalCloseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   @media ${query.lessThanSmall} {
     font-size: 12px;
     padding: 6px 14px;
@@ -142,6 +143,7 @@ export const ModalArrowButton = styled.button`
   border: none;
   background-color: ${({ theme }) => theme.modal.buttonBackground};
   color: ${({ theme }) => theme.modal.buttonColor};
+  cursor: pointer;
   @media ${query.lessThanSmall} {
     display: none;
   }
