@@ -5,6 +5,12 @@ interface Entry {
   isIntersecting: boolean
 }
 
+interface ObserverProps {
+  root: Element | null
+  rootMargin: string
+  threshold: number | number[]
+}
+
 export default function useInViewPort(
   intersectionRation: number,
   wrapperRef: any
@@ -31,7 +37,7 @@ export default function useInViewPort(
   )
 
   const createObserver = useCallback(() => {
-    const options = {
+    const options: ObserverProps = {
       root: null,
       rootMargin: '0px',
       threshold: [intersectionRation]

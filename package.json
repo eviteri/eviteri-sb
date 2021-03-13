@@ -1,32 +1,18 @@
 {
-  "name": "eviteri-sb",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/react-fontawesome": "^0.1.14",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.53",
-    "@types/react-dom": "^16.9.8",
-    "@types/styled-components": "^5.1.7",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-player": "^2.7.2",
-    "react-scripts": "4.0.1",
-    "react-slick": "^0.28.0",
-    "slick-carousel": "^1.8.1",
-    "styled-components": "^5.2.1",
-    "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
-  },
+  "name": "@eviteri/eviteri-sb",
+  "author": "Eloy Viteri",
+  "description": "A Component Library with StoryBook, StyledComponents and TypeScript ",
+  "version": "1.0.0",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "private": false,
+  "dependencies": {},
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "prebuild": "rm -rf dist && mkdir dist",
+    "build:copyAssets": "cp -r src/assets dist/ && cp package.json dist/ && cp README.md dist/",
+    "build:compile": "tsc --build tsconfig.prod.json",
+    "build": "npm run build:compile && npm run build:copyAssets",
     "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
@@ -72,6 +58,13 @@
       "enzyme-to-json/serializer"
     ]
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eviteri/eviteri-sb.git"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -103,6 +96,26 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.1",
     "husky": "4.2.5",
-    "jest-styled-components": "^7.0.3"
+    "jest-styled-components": "^7.0.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-player": "^2.7.2",
+    "react-scripts": "4.0.1",
+    "react-slick": "^0.28.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.2.1",
+    "typescript": "^4.0.3",
+    "web-vitals": "^0.2.4"
   }
 }

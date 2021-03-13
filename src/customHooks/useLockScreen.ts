@@ -5,9 +5,10 @@ export default function useLockScreen(shouldLockScreen: boolean) {
 
   useEffect(() => {
     const scrollFromTop =
-      window.pageYOffset ||
-      (document.documentElement || document.body.parentNode || document.body)
-        .scrollTop
+      window.pageYOffset !== undefined
+        ? window.pageYOffset
+        : document.body?.scrollTop
+
     if (shouldLockScreen) {
       document.body.style.overflow = 'hidden'
       document.body.style.position = 'fixed'

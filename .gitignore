@@ -9,8 +9,10 @@
 /coverage
 
 # production
+.vscode
 /build
 /storybook-static
+/dist
 
 # misc
 .DS_Store
