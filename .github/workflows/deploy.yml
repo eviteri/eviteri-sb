@@ -21,10 +21,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: yarn install
-      - run: yarn lint
-      - run: yarn test
-      - run: yarn build-storybook
+      - run: npm install
+      - run: npm lint
+      - run: npm test
+      - run: npm build-storybook
 
       - name: Copy repository contents via scp
         uses: appleboy/scp-action@master
