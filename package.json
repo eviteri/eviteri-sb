@@ -10,9 +10,10 @@
   "scripts": {
     "start": "react-scripts start",
     "prebuild": "rm -rf dist && mkdir dist",
-    "build:copyAssets": "cp -r src/assets dist/ && cp package.json dist/ && cp README.md dist/",
-    "build:compile": "tsc --build tsconfig.prod.json",
     "build": "npm run build:compile && npm run build:copyAssets",
+    "build:compile": "tsc --build tsconfig.prod.json",
+    "build:copyAssets": "cp -r src/assets dist/ && cp package.json dist/ && cp README.md dist/",
+    "dist": "cd dist && npm publish",
     "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
@@ -77,6 +78,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "react-player": "^2.7.2",
+    "react-slick": "^0.28.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.1.15",
