@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Welcome/5. Using Library" />
+
+## Using Library
+
+Examples
+
+Button
+
+```tsx
+import React from 'react'
+import { Button } from '@eviteri/eviteri-sb/ui'
+
+const TestComponent = () => {
+  return (
+    <div>
+      <p> Some text with a button </p>
+      <Button
+        type="button"
+        buttonType="primary"
+        onClick={() => console.log('button clicked')}
+      >
+        Primary
+      </Button>
+    </div>
+  )
+}
+```
+
+Link
+
+```tsx
+import React from 'react'
+import { Link } from '@eviteri/eviteri-sb/ui'
+
+const TestComponent = () => {
+  return (
+    <div>
+      <p> Some text with a button </p>
+      <Link>Default Link</Link>
+    </div>
+  )
+}
+```

@@ -1,3 +1,7 @@
-# Getting Started with Create React App
+# Eviteri Component Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Component Library creates reusable UI components for React applications.
+
+This component library is built using React 17.
+
+[View Getting Started Guide](http://storybook.eviteri.com/?path=/story/welcome-1-getting-started--page).

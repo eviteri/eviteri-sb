@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Welcome/6. Testing Utilities" />
+
+## Testing Utilities
+
+Install the libraries below
+
+```bash
+yarn add enzyme @types/enzyme jest-styled-components --dev
+```
+
+Install Adapter for React 17
+
+```bash
+yarn add @wojtekmaj/enzyme-adapter-react-17 --dev
+```
+
+## Create/Update a Setup file
+
+Create/Update `setupTest.ts` file under the `src` folder
+
+```typescript
+import { configure } from 'enzyme'
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
+import 'jest-styled-components'
+
+jest.spyOn(global.console, 'error').mockImplementation(jest.fn())
+
+// @ts-ignore
+window.matchMedia =
+  window.matchMedia ||
+  function () {
+    return {
+      matches: false,
+      addListener: function () {},
+      removeListener: function () {}
+    }
+  }
+
+configure({ adapter: new Adapter() })
+```
